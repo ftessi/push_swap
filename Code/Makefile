@@ -1,46 +1,59 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2026/06/29 22:05:00 by umutkilicas       #+#    #+#              #
+#    Updated: 2026/06/29 22:03:46 by umutkilicas      ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME        = push_swap
-CC          = cc
+
+CC          = gcc
 CFLAGS      = -Wall -Wextra -Werror
 
-# Klasör Yapısı
-SRC_DIR     = src
-OBJ_DIR     = obj
+SRC         = main.c \
+              ft_split.c \
+              parser.c \
+              stack_utils.c \
+              sort_three.c \
+              ops_push.c \
+              ops_swap.c \
+              ops_rotate.c \
+              ops_rev_rotate.c
 
-# Kaynak Dosyalar (Dosyaları yazdıkça buraya ekleyebilirsin)
-SRC_FILES   = main.c \
-             
+OBJ         = $(SRC:.c=.o)
 
-SRCS        = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
-OBJS        = $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.c=.o))
+RM          = rm -f
 
-# Renk Kodları (Terminal çıktısı estetiği için)
+# Renk kodları (Terminal çıktısının güzel görünmesi için)
 GREEN       = \033[0;32m
 YELLOW      = \033[0;33m
 RESET       = \033[0m
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-	@echo "$(GREEN)[✓] $(NAME) başarıyla derlendi!$(RESET)"
+$(NAME): $(OBJ)
+	@echo "$(YELLOW)Compiling $(NAME)...$(RESET)"
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	@echo "$(GREEN)$(NAME) successfully created!$(RESET)"
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
-	@$(CC) $(CFLAGS) -c $< -o $@
-
-$(OBJ_DIR):
-	@mkdir -p $(OBJ_DIR)
+%.o: %.c push_swap.h
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -rf $(OBJ_DIR)
-	@echo "$(YELLOW)[-] Obje dosyaları temizlendi.$(RESET)"
+	@echo "$(YELLOW)Cleaning object files...$(RESET)"
+	$(RM) $(OBJ)
+	@echo "$(GREEN)Object files cleaned!$(RESET)"
 
 fclean: clean
-	@rm -f $(NAME)
-	@echo "$(YELLOW)[-] $(NAME) ve kütüphaneler temizlendi.$(RESET)"
+	@echo "$(YELLOW)Cleaning binary...$(RESET)"
+	$(RM) $(NAME)
+	@echo "$(GREEN)All cleaned!$(RESET)"
 
 re: fclean all
 
-# Bonus kuralı (İleride checker yazarsan kullanmak için zorunlu)
-bonus: all
-
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re

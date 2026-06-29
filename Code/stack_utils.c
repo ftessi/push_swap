@@ -1,3 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/29 21:34:06 by umutkilicas       #+#    #+#             */
+/*   Updated: 2026/06/29 21:52:06 by umutkilicas      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
 t_node	*node_creator(int value)
 {
 	t_node	*node;
@@ -11,7 +25,7 @@ t_node	*node_creator(int value)
 	node->median = false;
 	node->cost = 0;
 	node->disorder = 0;
-	node->target_node = NULL;
+	node->target = NULL;
 	node->next = NULL;
 	node->prev = NULL;
 	return (node);
@@ -89,7 +103,7 @@ bool is_sorted(t_stack_check *stack)
     
     while (curr->next)
     {
-        if(cur->value > curr->next->value)
+        if(curr->value > curr->next->value)
             return (false);//cuz desencing order
         curr = curr->next;
     }

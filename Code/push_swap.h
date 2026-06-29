@@ -6,7 +6,7 @@
 /*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 17:33:03 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/06/28 21:33:59 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/06/29 21:43:52 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,36 +17,64 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct s_stack_node
+typedef struct s_node
 {
-	int						value;
-	// the actual value of the input
-	int						index;
-	// index value of the input on right order
-	int						pos;
-	// current positon on the stack
-	bool					median;
-	// if 1 above median if 0 under
-	int						cost;
-	// total cost of ops
-	double					disorder;
-	// from 0 to 1 and measures how far
-	// away is from being completely ordered
-	t_stack_node			*target;
-	t_stack_node			*next;
-	t_stack_node			*prev;
-}	t_stack_node;
+	int					value;
+	int					index;
+	int					pos;
+	bool				median;
+	int					cost;
+	double				disorder;
+	struct s_node		*target; 
+	struct s_node		*next;
+	struct s_node		*prev;
+}	t_node;
 
 typedef struct s_stack_check
 {
-	struct s_stack_check	*head;
-	struct s_stack_check	*tail;
-	struct s_stack_check	*max;
-	struct s_stack_check	*min;
-	int						disorder;
-	// again disorder?
-	int						size;
-	// how many nodes
-}							t_stack_check;
+	t_node				*head;     
+	t_node				*tail;     
+	t_node				*max;      
+	t_node				*min;      
+	int					disorder;
+	int					size;
+}	t_stack_check;
+
+/* --- SPLIT & PARSING --- */
+char	**ft_split(char const *str, char c);
+int		error_syntax(char *str);
+int		error_duplicate(t_stack_check *stack, int dup);
+int		ft_atoi_ps(char *str, t_stack_check *stack, char **argv, bool is_split);
+void	free_and_exit(t_stack_check *stack, char **argv, bool is_split);
+
+/* --- STACK UTILS --- */
+t_node	*node_creator(int value);
+void	node_connecter(t_stack_check *stack, t_node *new_node);
+void	stack_o_meter(t_stack_check *stack);
+void	free_stack(t_stack_check *stack);
+bool	is_sorted(t_stack_check *stack);
+
+/* --- ALGORITHMS --- */
+void	three_sorter(t_stack_check *stack);
+
+/* --- INSTRUCTIONS --- */
+void	stack_pusher(t_stack_check *dest, t_stack_check *src);
+void	pb(t_stack_check *a, t_stack_check *b);
+void	pa(t_stack_check *a, t_stack_check *b);
+
+void	stack_swapper(t_stack_check *stack);
+void	sa(t_stack_check *a);
+void	sb(t_stack_check *b);
+void	ss(t_stack_check *a, t_stack_check *b);
+
+void	stack_rotater(t_stack_check *stack);
+void	ra(t_stack_check *a);
+void	rb(t_stack_check *b);
+void	rr(t_stack_check *a, t_stack_check *b);
+
+void	stack_rev_rotater(t_stack_check *stack);
+void	rra(t_stack_check *a);
+void	rrb(t_stack_check *b);
+void	rrr(t_stack_check *a, t_stack_check *b);
 
 #endif

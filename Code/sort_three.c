@@ -6,9 +6,11 @@
 /*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 20:02:55 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/06/28 22:12:43 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/06/29 22:02:36 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 void three_sorter(t_stack_check *stack)
 {

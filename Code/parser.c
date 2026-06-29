@@ -6,7 +6,7 @@
 /*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 21:31:48 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/06/29 12:48:31 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/06/29 21:56:09 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,25 +69,29 @@ int ft_atoi_ps(char *str, t_stack_check *stack, char **argv, bool is_split)
         res = (res * 10) + (str[i] - '0');
         res = res * sign;
         if (res > 2147483647 ||res < -2147483648)
-        free_and_exit(stack, argv, is_split)
+        free_and_exit(stack, argv, is_split);
         i++;
     }
     return (res);
 }
 
-void free_and_exit (t_stack_check *stack, char **argv, bool is_split)
+void	free_and_exit(t_stack_check *stack, char **argv, bool is_split)
 {
-    int i;
+	int	i;
 
-    if (argv && is_split == true)
-    {    
+	if (argv && is_split)
+	{
+		i = 0;
+		while (argv[i])
+		{
+			free(argv[i]);
+			i++;
+		}
+		free(argv);
+	}
+	if (stack)
+		free_stack(stack);
+	write(2, "Error\n", 6);
+    exit (1);
+}
 
-    i = 0;
-    while (argv[i])
-        free(argv[i++]);
-    free(argv);
-}
-    free_stack(stack);
-    write (2, "Error\n", 6);
-    return (1);
-}

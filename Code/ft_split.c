@@ -6,15 +6,15 @@
 /*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 21:17:19 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/06/29 21:19:39 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/06/29 21:58:54 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
 
-
-static size_t	element_counter(char const *str, char c)
+static int	element_counter(char const *str, char c)
 {
-	size_t	count;
+	int	count;
 	int		in_element;
 
 	in_element = 0;
@@ -33,17 +33,17 @@ static size_t	element_counter(char const *str, char c)
 	return (count);
 }
 
-static void	free_all(char **res, size_t i)
+static void	free_all(char **res, int i)
 {
 	while (i > 0)
 		free(res[--i]);
 	free(res);
 }
 
-static char	*allocate_element(const char *str, size_t len)
+static char	*allocate_element(const char *str, int len)
 {
 	char	*new_element;
-	size_t	i;
+	int	i;
 
 	new_element = malloc(len + 1);
 	if (!new_element)
@@ -60,8 +60,8 @@ static char	*allocate_element(const char *str, size_t len)
 
 static int	fill_the_res(char **res, char const *str, char c)
 {
-	size_t	i;
-	size_t	len;
+	int	i;
+	int	len;
 
 	i = 0;
 	while (*str)
