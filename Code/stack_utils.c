@@ -34,8 +34,7 @@ void node_connecter (t_stack_check *stack, t_node *new_node)
     stack->size++;
 }
 
-
-void    stack_o_meter(t_stack_check *stack)
+void stack_o_meter(t_stack_check *stack)
 {
     t_node *curr;
     int i;
@@ -61,36 +60,38 @@ void    stack_o_meter(t_stack_check *stack)
         i++;
     }
 }
-
-/*t_node *max_finder(t_stack_node *stack)
+void free_stack(t_stack_check *stack)
 {
-    t_node *max;
+    t_node *curr;
+    t_node *next;
 
     if (!stack || !stack->head)
-        return (NULL);
-    max = stack->head; 
-
-    while (stack->head)
+        return ;
+    curr = stack->head;
+    
+    while (curr)
     {
-        if (stack->head->value > max->value)
-            max = stack->head;
-        stack->head = stack->head->next;
+        next = curr->next;
+        free(curr);
+        curr = next;
     }
-    return (max);
+    stack->head = NULL;
+    stack->tail = NULL;
+    stack->size = 0;
 }
-t_node *min_finder(t_stack_check *stack)
+bool is_sorted(t_stack_check *stack)
 {
-    t_node *min;
+    t_node *curr;
 
     if (!stack || !stack->head)
-        return (NULL);
-    min = stack->head;
-
-    while (stack->head)
+        return (true);
+    curr = stack->head;
+    
+    while (curr->next)
     {
-        if (stack->head->value < min->value)
-            min = stack->head;
-        stack->head = stack->head->next;
+        if(cur->value > curr->next->value)
+            return (false);//cuz desencing order
+        curr = curr->next;
     }
-    return (min);
-}*/
+    return (true);
+}

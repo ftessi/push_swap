@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 17:33:03 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/06/27 03:33:00 by ftessi           ###   ########.fr       */
+/*   Updated: 2026/06/28 21:33:59 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ typedef struct s_stack_node
 typedef struct s_stack_check
 {
 	struct s_stack_check	*head;
-	// The link for the top on the list
 	struct s_stack_check	*tail;
-	// bottom
+	struct s_stack_check	*max;
+	struct s_stack_check	*min;
 	int						disorder;
 	// again disorder?
 	int						size;
