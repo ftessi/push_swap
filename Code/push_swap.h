@@ -6,7 +6,7 @@
 /*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 17:33:03 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/06/29 21:43:52 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/06/29 22:42:06 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_node
 	int					pos;
 	bool				median;
 	int					cost;
-	double				disorder;
+	int					disorder;
 	struct s_node		*target; 
 	struct s_node		*next;
 	struct s_node		*prev;

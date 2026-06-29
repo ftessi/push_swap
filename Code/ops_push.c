@@ -6,7 +6,7 @@
 /*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 00:51:13 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/06/28 23:51:28 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/06/29 22:46:12 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ void	stack_pusher(t_stack_check *dest, t_stack_check *src)
 }
 void	pb(t_stack_check *a, t_stack_check *b)
 {
-	stack_pusher(a, b); //(dest, src)
+	stack_pusher(b, a); //(dest, src)
 	write(1, "pb\n", 3);
 }
 void	pa(t_stack_check *a, t_stack_check *b)
 {
-	stack_pusher(b, a);
+	stack_pusher(a, b);
 	write(1, "pa\n", 3);
 }
