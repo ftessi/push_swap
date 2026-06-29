@@ -6,7 +6,7 @@
 /*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 21:34:06 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/06/29 21:52:06 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/06/29 22:53:26 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ t_node	*node_creator(int value)
 	node->pos = 0;
 	node->median = false;
 	node->cost = 0;
-	node->disorder = 0;
 	node->target = NULL;
 	node->next = NULL;
 	node->prev = NULL;
