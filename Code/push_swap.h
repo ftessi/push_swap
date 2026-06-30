@@ -6,7 +6,7 @@
 /*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 17:33:03 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/06/29 22:51:58 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/06/30 20:22:08 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_stack_check
 	t_node				*max;      
 	t_node				*min;      
 	int					size;
+	double				disorder;
 }	t_stack_check;
 
 /* --- SPLIT & PARSING --- */
