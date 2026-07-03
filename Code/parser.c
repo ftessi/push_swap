@@ -6,7 +6,7 @@
 /*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 21:31:48 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/06/29 21:56:09 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/01 20:44:11 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int ft_atoi_ps(char *str, t_stack_check *stack, char **argv, bool is_split)
 
         res = (res * 10) + (str[i] - '0');
         res = res * sign;
-        if (res > 2147483647 ||res < -2147483648)
+        if (res > 2147483647 || res < -2147483648)
         free_and_exit(stack, argv, is_split);
         i++;
     }
