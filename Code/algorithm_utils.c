@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_three.c                                       :+:      :+:    :+:   */
+/*   algorithm_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/28 20:02:55 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/05 19:52:37 by umutkilicas      ###   ########.fr       */
+/*   Created: 2026/07/06 14:10:33 by umutkilicas       #+#    #+#             */
+/*   Updated: 2026/07/06 15:07:38 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap.c"
 
-void three_sorter(t_stack_check *stack)
+void    target_the_a(t_node *node_b, t_stack_check *a)
 {
-    stack_o_meter(stack);
+    t_node *curr_a;
+    t_node *target_node;
+    long closest_larger_value;
 
-    if (stack->max->pos == 0)//if max on top put to bottom
-        ra(stack);
-    else if (stack->max->pos == 1)//if max on the middle put the bottom
-        rra(stack);
-    if (stack->head->value > stack->head->next->value)
-        sa(stack); 
+    curr_a = a->head;
+    target_node = NULL;
+    closest_larger_value = 2147483648; // Initializing above INT_MAX
+    
+    //loop through stack A to find closest larger neighbors
+    
 }

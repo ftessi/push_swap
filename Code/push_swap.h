@@ -6,7 +6,7 @@
 /*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 17:33:03 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/06/30 20:22:08 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/06 14:16:23 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,9 @@ void	stack_o_meter(t_stack_check *stack);
 void	free_stack(t_stack_check *stack);
 bool	is_sorted(t_stack_check *stack);
 
-/* --- ALGORITHMS --- */
+/* --- ALGORITHMS AND UTILS --- */
 void	three_sorter(t_stack_check *stack);
+void	simple_sorter(t_stack_check *a, t_stack_check *b);
 
 /* --- INSTRUCTIONS --- */
 void	stack_pusher(t_stack_check *dest, t_stack_check *src);
