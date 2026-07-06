@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+         #
+#    By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/29 22:05:00 by umutkilicas       #+#    #+#              #
-#    Updated: 2026/06/29 23:00:12 by umutkilicas      ###   ########.fr        #
+#    Updated: 2026/07/06 14:09:10 by ftessi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ SRC         = main.c \
               ops_push.c \
               ops_swap.c \
               ops_rotate.c \
-              ops_rev_rotate.c
+              ops_rev_rotate.c \
+			  build_stack.c
 
 OBJ         = $(SRC:.c=.o)
 
