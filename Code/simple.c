@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   simple.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 13:15:38 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/06 16:14:37 by ftessi           ###   ########.fr       */
+/*   Updated: 2026/07/07 15:34:59 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap.c"
 
 void	simple_sorter(t_stack_check *a, t_stack_check *b)
 {
@@ -28,8 +28,8 @@ void	simple_sorter(t_stack_check *a, t_stack_check *b)
 		thats why find the target node from b for the top of a
 		*/
 		target_node = target_the_b(a->head, b);
-			// rotate the stack b until target node sitting at the top (pos == 0)
-			while (target_node->pos != 0)
+		// rotate the stack b until target node sitting at the top (pos == 0)
+		while (target_node->pos != 0)
 		{
 			if (target_node->median == true)
 				rb(b); // rotate up if it's in top half
@@ -67,12 +67,11 @@ void	simple_sorter(t_stack_check *a, t_stack_check *b)
 	stack_o_meter(a);
 
 	// bring the absolute smallest element to top of the complete sort
-    while (a->min->pos != 0)
-    {
-        
-        if (a->min->median == true)
-		    ra(a);
-        else
-            rra(a);
-    }
+	while (a->min->pos != 0)
+	{
+		if (a->min->median == true)
+			ra(a);
+		else
+			rra(a);
+	}
 }
