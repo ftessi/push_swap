@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   disorder.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
+/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 20:56:21 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/03 19:21:29 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/07 14:28:27 by ftessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 double	compute_disorder(t_stack_check *stack)
 {
@@ -17,9 +19,10 @@ double	compute_disorder(t_stack_check *stack)
 	double mistakes;
 	double total_pairs;
 
-	if (!stack || stack->size < 2)
-		mistakes = 0.0;
+	mistakes = 0.0;
 	total_pairs = 0.0;
+	if (!stack || stack->size < 2)
+		return (0.0);
 	i = stack->head;
 	while (i)
 	{
@@ -33,7 +36,5 @@ double	compute_disorder(t_stack_check *stack)
 		}
 		i = i->next;
 	}
-	if (mistakes == 0.0)
-		return (0.0);
 	return (mistakes / total_pairs);
 }

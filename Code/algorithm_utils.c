@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
+/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 14:10:33 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/06 15:07:38 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/07 14:07:34 by ftessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.c"
+#include "push_swap.h"
 
 void    target_the_a(t_node *node_b, t_stack_check *a)
 {

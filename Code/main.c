@@ -32,9 +32,11 @@ static void	sort_dispatch(t_stack_check *a)
 int	main(int argc, char **argv)
 {
 	t_stack_check	*a;
-
+	double			disorder;
+	
+	disorder = 0.0;
 	if (argc < 2)
-		return (0);
+	return (0);
 	a = init_stack();
 	if (!a)
 	{
@@ -42,6 +44,12 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	build_stack(a, argc, argv);
+	disorder = compute_disorder(a);
+	printf("\n Disorder context: %f", disorder);
+	a->disorder = compute_disorder(a);
+	printf("\n Disorder stack: %f", a->disorder);
+	printf("\n Hi!");
+	printf("\n Hi!");
 	if (!is_sorted(a))
 		sort_dispatch(a);
 	free_stack(a);

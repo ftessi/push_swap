@@ -6,7 +6,7 @@
 /*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 17:33:03 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/06 14:16:23 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/07 14:08:41 by ftessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,13 @@ void				free_and_exit(t_stack_check *stack, char **argv,
 						bool is_split);
 void				build_stack(t_stack_check *a, int argc, char **argv);
 
-
 /* --- STACK UTILS --- */
 t_node				*node_creator(int value);
 void				node_connecter(t_stack_check *stack, t_node *new_node);
 void				stack_o_meter(t_stack_check *stack);
 void				free_stack(t_stack_check *stack);
 bool				is_sorted(t_stack_check *stack);
+double				compute_disorder(t_stack_check *stack);
 
 /* --- ALGORITHMS AND UTILS --- */
 void				three_sorter(t_stack_check *stack);
