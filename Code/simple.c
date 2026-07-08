@@ -6,11 +6,11 @@
 /*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 13:15:38 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/07 15:34:59 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/08 11:46:56 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.c"
+#include "push_swap.h"
 
 void	simple_sorter(t_stack_check *a, t_stack_check *b)
 {
