@@ -6,7 +6,7 @@
 /*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 17:33:03 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/07 14:08:41 by ftessi           ###   ########.fr       */
+/*   Updated: 2026/07/08 14:09:22 by ftessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ void				stack_o_meter(t_stack_check *stack);
 void				free_stack(t_stack_check *stack);
 bool				is_sorted(t_stack_check *stack);
 double				compute_disorder(t_stack_check *stack);
+t_node				*target_the_a(t_node *node_b, t_stack_check *a);
+t_node				*target_the_b(t_node *node_a, t_stack_check *b);
 
 /* --- ALGORITHMS AND UTILS --- */
 void				three_sorter(t_stack_check *stack);

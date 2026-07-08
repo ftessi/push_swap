@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
+/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 14:10:33 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/07 15:33:19 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/08 15:25:52 by ftessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node	target_the_a(t_node *node_b, t_stack_check *a)
+t_node	*target_the_a(t_node *node_b, t_stack_check *a)
 {
 	t_node	*curr_a;
 	t_node	*target_node;
@@ -37,7 +37,7 @@ t_node	target_the_a(t_node *node_b, t_stack_check *a)
 	return (target_node);
 }
 
-t_node	target_the_b(t_node *node_a, t_stack_check *b)
+t_node	*target_the_b(t_node *node_a, t_stack_check *b)
 {
 	t_node *curr_b;
 	t_node *target_node;
