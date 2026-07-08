@@ -6,7 +6,7 @@
 /*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 17:33:03 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/08 14:09:22 by ftessi           ###   ########.fr       */
+/*   Updated: 2026/07/08 20:59:17 by ftessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,10 @@ t_node				*target_the_b(t_node *node_a, t_stack_check *b);
 /* --- ALGORITHMS AND UTILS --- */
 void				three_sorter(t_stack_check *stack);
 void				simple_sorter(t_stack_check *a, t_stack_check *b);
+void				complex_sorter(t_stack_check *a, t_stack_check *b);
+void				assign_cost(t_stack_check *a, t_stack_check *b);
+t_node				*find_cheapest(t_stack_check *b);
+int					signed_rot(int pos, int size);
 
 /* --- INSTRUCTIONS --- */
 void				stack_pusher(t_stack_check *dest, t_stack_check *src);
