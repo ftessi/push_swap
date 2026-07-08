@@ -27,7 +27,7 @@ static void	sort_dispatch(t_stack_check *a, t_stack_check *b)
 		three_sorter(a);
 	else if (a->size > 3)
 	{
-		simple_sorter(a, b);
+		complex_sorter(a, b);
 	}
 	// The three sorter magic
 	// Now the algo's
