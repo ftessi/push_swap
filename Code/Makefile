@@ -6,7 +6,11 @@
 #    By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/29 22:05:00 by umutkilicas       #+#    #+#              #
+<<<<<<< HEAD
 #    Updated: 2026/07/08 15:25:19 by umutkilicas      ###   ########.fr        #
+=======
+#    Updated: 2026/07/08 14:02:57 by ftessi           ###   ########.fr        #
+>>>>>>> f1a2d09e59d0580dc167fe88bd69d05a51d3dd86
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +19,12 @@ NAME        = push_swap
 CC          = gcc
 CFLAGS      = -Wall -Wextra -Werror
 
+<<<<<<< HEAD
 SRC         = algorithm_utils.c build_stack.c disorder.c ft_split.c main.c ops_push.c ops_rev_rotate.c ops_rotate.c ops_swap.c parser.c sort_three.c stack_utils.c
 
+=======
+SRC         = algorithm_utils.c  build_stack.c  disorder.c  ft_split.c  main.c  ops_push.c  ops_rev_rotate.c  ops_rotate.c  ops_swap.c  parser.c  simple.c  sort_three.c  stack_utils.c
+>>>>>>> f1a2d09e59d0580dc167fe88bd69d05a51d3dd86
 OBJ         = $(SRC:.c=.o)
 
 RM          = rm -f

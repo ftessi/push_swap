@@ -1,136 +1,57 @@
-FONKSİYON run_simple_sort(t_stack_check *a, t_stack_check *b):
-    // 1. ADIM: A yığınında sadece 3 eleman kalana kadar B'ye akıllıca it
-    DÖNGÜ: a->size > 3 olduğu sürece:
-        
-        // Yığınların güncel pozisyonlarını ve sınırlarını tazele
-        stack_o_meter(a)
-        stack_o_meter(b)
+FUNCTION run_medium_sort(t_stack_check *a, t_stack_check *b):
+    // 1. Assign absolute sorted ranks (0 to N-1) to every node's index field
+    assign_sorted_indices(a)
 
-        // A'nın en tepesindeki elemanı B'ye rastgele atamayız.
-        // B yığınının her zaman büyükten küçüğe sıralı gitmesini korumalıyız.
-        // Bu yüzden A'nın tepesindeki eleman için B'deki 'target_node'u (hedefi) bul.
-        // NOT: set_target_nodes_a mantığını burada sadece en üstteki eleman için çalıştırıyoruz.
-        Hedef_Dugum = find_target_in_b_for_node(a->head, b)
+    // Calculate dynamic chunk boundaries based on total elements
+    chunk_size = 18  // Optimal chunk sizing block for around 100 elements
+    current_index = 0
 
-        // B'deki hedef düğümü (target_node) B'nin en tepesine döndürerek getir
-        DÖNGÜ: Hedef_Dugum en tepede (pos != 0) olmadığı sürece:
-            EĞER Hedef_Dugum üst yarıdaysa (median == True) ise:
-                rb(b) // Yukarı döndür
-            DEĞİLSE:
-                rrb(b) // Aşağı döndür
-
-        // Hedef yer açıldığı an A'nın en tepesindeki elemanı B'ye fırlat
-        pb(a, b)
-
-    // 2. ADIM: A yığınında kalan son 3 elemanı senin yazdığın muhteşem motorla sırala
-    three_sorter(a)
-
-    // 3. ADIM: B yığınındaki tüm elemanları sırayla A'ya geri topla
-    DÖNGÜ: b->size > 0 olduğu sürece:
-        stack_o_meter(a)
-        stack_o_meter(b)
-
-        // B'nin en tepesindeki elemanın A'da oturması gereken tam yeri bul.
-        // A yığını küçükten büyüğe sıralı gittiği için, B'deki elemandan BÜYÜK olan en küçük sayıyı ararız.
-        Hedef_A = find_target_in_a_for_node(b->head, a)
-
-        // A'daki hedef elemanı A'nın en tepesine döndürerek getir
-        DÖNGÜ: Hedef_A en tepede (pos != 0) olmadığı sürece:
-            EĞER Hedef_A üst yarıdaysa (median == True) ise:
-                ra(a)
-            DEĞİLSE:
-                rra(a)
-
-        // Yer açılınca elemanı A'ya geri fırlat
-        pa(a, b)
-
-    // 4. ADIM: Son rötuş ve Hizalama
-    stack_o_meter(a)
-    // En küçük eleman en tepede değilse, onu en tepeye getirene kadar döndür
-    DÖNGÜ: a->min en tepede (pos != 0) olmadığı sürece:
-        EĞER a->min üst yarıdaysa (median == True) ise:
-            ra(a)
-        DEĞİLSE:
-            rra(a)
-
-
-
-FUNCTION run_simple_sort(t_stack_check *a, t_stack_check *b):
     // ==========================================================
-    // PHASE 1: PRE-SORT & PUSH TO STACK B
+    // PHASE 1: CHUNKED DISTRIBUTION (A -> B)
     // ==========================================================
     WHILE a->size > 3:
-        // Update positions, medians, max, and min shortcuts in both stacks
-        stack_o_meter(a)
-        stack_o_meter(b)
-
-        // Find the correct structural landing pad in B for the top node
-        target_node = find_target_in_b(a->head, b)
-
-        // Rotate Stack B until that target node is sitting at the very top (pos == 0)
-        WHILE target_node->pos != 0:
-            IF target_node->median == TRUE:
-                rb(b)     // Rotate up if it's in the top half
-            ELSE:
-                rrb(b)    // Reverse rotate down if it's in the bottom half
-
-        // Once the target spot is open at the top, fire the node across
-        pb(a, b)
+        // If the top element fits inside the current window slice
+        IF a->head->index <= current_index:
+            pb(a, b)
+            rb(b)            // Send the smallest chunk elements to the bottom of B
+            current_index++
+        ELSE IF a->head->index <= (current_index + chunk_size):
+            pb(a, b)         // Keep the middle chunk elements at the top of B
+            current_index++
+        ELSE:
+            ra(a)            // Rotate A to look for a matching chunk element
 
     // ==========================================================
-    // PHASE 2: SOLVE THE BASE CASE
+    // PHASE 2: SOLVE BASE THREE
     // ==========================================================
-    // Exactly 3 nodes are left in A. Sort them instantly in 1 or 2 moves
     three_sorter(a)
 
     // ==========================================================
-    // PHASE 3: THE RETURN COLLECTION (PUSH BACK TO A)
+    // PHASE 3: ASCENDING RETURN RECOVERY (B -> A)
     // ==========================================================
     WHILE b->size > 0:
         stack_o_meter(a)
         stack_o_meter(b)
 
-        // Stack A is sorted ascending, so find the smallest number in A 
-        // that is still larger than b->head
-        target_node = find_target_in_a(b->head, a)
+        // Find the absolute closest ascending landing target in A
+        target_node = target_the_a(b->head, a)
 
-        // Rotate Stack A until its target node is sitting at the very top
+        // Rotate A until its landing destination is exposed at the top row
         WHILE target_node->pos != 0:
             IF target_node->median == TRUE:
                 ra(a)
             ELSE:
                 rra(a)
 
-        // Push the node back home into Stack A
         pa(a, b)
 
     // ==========================================================
-    // PHASE 4: FINAL SEQUENCE ALIGNMENT
+    // PHASE 4: RE-ALIGN SMALLEST BOUNDARY
     // ==========================================================
     stack_o_meter(a)
-    
-    // Bring the absolute smallest element to the top to complete the sort
     WHILE a->min->pos != 0:
         IF a->min->median == TRUE:
             ra(a)
         ELSE:
             rra(a)
-
-
-FUNCTION find_target_in_a(t_node *node_b, t_stack_check *a):
-    t_node *curr_a = a->head
-    t_node *target_node = NULL
-    LONG closest_larger_value = 2147483648 // Initializing above INT_MAX
-
-    // Loop through Stack A to find the closest larger neighbor
-    WHILE curr_a IS NOT NULL:
-        IF curr_a->value > node_b->value AND curr_a->value < closest_larger_value:
-            closest_larger_value = curr_a->value
-            target_node = curr_a
-        curr_a = curr_a->next
-
-    // Edge Case: If no node in A is larger than node_b, target becomes the minimum node in A
-    IF target_node == NULL:
-        RETURN a->min
-        
-    RETURN target_node
+        stack_o_meter(a)
