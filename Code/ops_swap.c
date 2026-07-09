@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ops_swap.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
+/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/27 03:29:48 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/09 13:38:02 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/09 14:23:59 by ftessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	sa(t_stack_check *a)
 void	sb(t_stack_check *b)
 {
 	stack_swapper(b);
-	a->op_sb++;
+	b->op_sb++;
 	write(1, "sb\n", 3);
 }
 

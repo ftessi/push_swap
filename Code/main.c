@@ -26,6 +26,8 @@
 }*/
 void	print_benchmark_summary(t_stack_check *a, t_stack_check *b)
 {
+	int	total_ops;
+	
 	total_ops = a->op_sa + b->op_sa + a->op_pa + b->op_pa + a->op_pb + b->op_pb
 		+ a->op_ra + b->op_ra + a->op_rb + b->op_rb + a->op_rr + b->op_rr
 		+ a->op_rra + b->op_rra + a->op_rrb + b->op_rrb + a->op_rrr + b->op_rrr;

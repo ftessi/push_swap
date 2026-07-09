@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
+/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 17:33:03 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/09 14:17:51 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/09 14:25:09 by ftessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ typedef struct s_stack_check
 	int				size;
 	double			disorder;
 	int				op_sa;
+	int				op_sb;
+	int				op_ss;	
 	int				op_pa;
 	int				op_pb;
 	int				op_ra;
