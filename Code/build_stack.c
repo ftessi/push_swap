@@ -6,7 +6,7 @@
 /*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 13:31:39 by ftessi            #+#    #+#             */
-/*   Updated: 2026/07/09 14:17:53 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/09 15:34:11 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_stack_check	*init_stack(void)
 {
 	t_stack_check	*stack;
 
-	stack = malloc(sizeof(t_stack_check));
+	stack = (t_stack_check *)malloc(sizeof(t_stack_check));
 	if (!stack)
 		return (NULL);
 	stack->head = NULL;
@@ -26,6 +26,8 @@ t_stack_check	*init_stack(void)
 	stack->size = 0;
 	stack->disorder = 0.0;
 	stack->op_sa = 0;
+	stack->op_sb = 0;
+	stack->op_ss = 0;
 	stack->op_pa = 0;
 	stack->op_pb = 0;
 	stack->op_ra = 0;

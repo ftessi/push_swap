@@ -6,7 +6,7 @@
 /*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 17:33:03 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/09 14:17:51 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/09 15:30:24 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,19 @@ typedef struct s_stack_check
 	t_node			*min;
 	int				size;
 	double			disorder;
-	int				op_sa;
-	int				op_pa;
-	int				op_pb;
-	int				op_ra;
-	int				op_rb;
-	int				op_rr;
-	int				op_rra;
-	int				op_rrb;
-	int				op_rrr;
+	int                 op_sa;
+    int                 op_sb;
+    int                 op_ss;
+    int                 op_pa;
+    int                 op_pb;
+    int                 op_ra;
+    int                 op_rb;
+    int                 op_rr;
+    int                 op_rra;
+    int                 op_rrb;
+    int                 op_rrr;
 }					t_stack_check;
+
 
 /* --- SPLIT & PARSING --- */
 char				**ft_split(char const *str, char c);
@@ -68,6 +71,7 @@ double				compute_disorder(t_stack_check *stack);
 t_node				*target_the_a(t_node *node_b, t_stack_check *a);
 t_node				*target_the_b(t_node *node_a, t_stack_check *b);
 t_stack_check		*init_stack(void);
+
 
 /* --- ALGORITHMS AND UTILS --- */
 void				three_sorter(t_stack_check *stack);

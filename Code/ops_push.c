@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ops_push.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
+/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 00:51:13 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/09 14:17:56 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/09 14:33:05 by ftessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	stack_pusher(t_stack_check *dest, t_stack_check *src)
 void	pb(t_stack_check *a, t_stack_check *b)
 {
 	stack_pusher(b, a); //(dest, src)
-	a->op_pb++;
+	b->op_pb++;
 	write(1, "pb\n", 3);
 }
 void	pa(t_stack_check *a, t_stack_check *b)
