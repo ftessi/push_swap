@@ -6,7 +6,7 @@
 /*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 00:51:13 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/06/29 22:46:12 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/09 14:17:56 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	stack_pusher(t_stack_check *dest, t_stack_check *src)
 {
-	t_node *node_to_move;
+	t_node	*node_to_move;
 
 	if (!src->head)
 		return ;
@@ -25,14 +25,11 @@ void	stack_pusher(t_stack_check *dest, t_stack_check *src)
 	else
 		src->tail = NULL;
 	src->size--;
-
 	node_to_move->next = dest->head;
-
 	if (dest->head)
 		dest->head->prev = node_to_move;
 	else
 		dest->tail = node_to_move;
-
 	dest->head = node_to_move;
 	node_to_move->prev = NULL;
 	dest->size++;
@@ -40,10 +37,12 @@ void	stack_pusher(t_stack_check *dest, t_stack_check *src)
 void	pb(t_stack_check *a, t_stack_check *b)
 {
 	stack_pusher(b, a); //(dest, src)
+	a->op_pb++;
 	write(1, "pb\n", 3);
 }
 void	pa(t_stack_check *a, t_stack_check *b)
 {
 	stack_pusher(a, b);
+	a->op_pa++;
 	write(1, "pa\n", 3);
 }

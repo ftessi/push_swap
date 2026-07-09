@@ -3,15 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   build_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 13:31:39 by ftessi            #+#    #+#             */
-/*   Updated: 2026/07/06 14:11:16 by ftessi           ###   ########.fr       */
+/*   Updated: 2026/07/09 14:17:53 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+t_stack_check	*init_stack(void)
+{
+	t_stack_check	*stack;
+
+	stack = malloc(sizeof(t_stack_check));
+	if (!stack)
+		return (NULL);
+	stack->head = NULL;
+	stack->tail = NULL;
+	stack->max = NULL;
+	stack->min = NULL;
+	stack->size = 0;
+	stack->disorder = 0.0;
+	stack->op_sa = 0;
+	stack->op_pa = 0;
+	stack->op_pb = 0;
+	stack->op_ra = 0;
+	stack->op_rb = 0;
+	stack->op_rr = 0;
+	stack->op_rra = 0;
+	stack->op_rrb = 0;
+	stack->op_rrr = 0;
+	return (stack);
+}
 static void	free_tokens(char **arr)
 {
 	int	i;
@@ -43,36 +67,36 @@ static void	add_value(t_stack_check *a, char *tok, char **arr, bool is_split)
 
 static void	parse_split(t_stack_check *a, char *arg)
 {
-	char **arr;
-	int i;
+	char	**arr;
+	int		i;
 
-    arr = ft_split(arg, ' ');
-    if (!arr)
-        free_and_exit(a, NULL, false);
-    i = 0;
-    while (arr[i])
-    {
-        add_value(a, arr[i], arr, true);
-        i++;
-    }
-    free_tokens(arr);
+	arr = ft_split(arg, ' ');
+	if (!arr)
+		free_and_exit(a, NULL, false);
+	i = 0;
+	while (arr[i])
+	{
+		add_value(a, arr[i], arr, true);
+		i++;
+	}
+	free_tokens(arr);
 }
 
-void    build_stack(t_stack_check *a, int argc, char **argv)
+void	build_stack(t_stack_check *a, int argc, char **argv)
 {
-    int i;
+	int i;
 
-    if (argc == 2)
-        parse_split(a, argv[1]);
-    else
-    {
-        i = 1;
-        while (i < argc)
-        {
-            add_value(a, argv[i], NULL, false);
-            i++;
-        }
-    }
-    if (a->size == 0)
-        free_and_exit(a, NULL, false);
+	if (argc == 2)
+		parse_split(a, argv[1]);
+	else
+	{
+		i = 1;
+		while (i < argc)
+		{
+			add_value(a, argv[i], NULL, false);
+			i++;
+		}
+	}
+	if (a->size == 0)
+		free_and_exit(a, NULL, false);
 }

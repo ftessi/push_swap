@@ -2,20 +2,41 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-static t_stack_check	*init_stack(void)
+/*static int	ft_strcmp(char *s1, char *s2)
 {
-	t_stack_check	*stack;
+	int	total_ops;
+	int	total_ops;
+	int	total_ops;
+	int	total_ops;
+	int	total_ops;
+	int	total_ops;
+	int	total_ops;
+	int	total_ops;
+	int	total_ops;
+	int	total_ops;
+	int	total_ops;
+	int	total_ops;
 
-	stack = malloc(sizeof(t_stack_check));
-	if (!stack)
-		return (NULL);
-	stack->head = NULL;
-	stack->tail = NULL;
-	stack->max = NULL;
-	stack->min = NULL;
-	stack->size = 0;
-	stack->disorder = 0.0;
-	return (stack);
+	while (*s1 && (*s1 == *s2))
+	{
+		s1++;
+		s2++;
+	}
+	return (*s1 - *s2);
+}*/
+void	print_benchmark_summary(t_stack_check *a, t_stack_check *b)
+{
+	total_ops = a->op_sa + b->op_sa + a->op_pa + b->op_pa + a->op_pb + b->op_pb
+		+ a->op_ra + b->op_ra + a->op_rb + b->op_rb + a->op_rr + b->op_rr
+		+ a->op_rra + b->op_rra + a->op_rrb + b->op_rrb + a->op_rrr + b->op_rrr;
+	printf("\n === OPS SUMMERY === \n");
+	printf("SA : %d\n", a->op_sa);
+	printf("PA : %d | PB : %d\n", a->op_pa, b->op_pb);
+	printf("RA : %d | RB : %d | RR : %d\n", a->op_ra, b->op_rb, a->op_rr);
+	printf("RRA: %d | RRB: %d | RRR: %d\n", a->op_rra, b->op_rrb, a->op_rrr);
+	printf("----------------------------------\n");
+	printf("TOTAL MOVES: %d\n", total_ops);
+	printf("==================================\n\n");
 }
 
 static void	sort_dispatch(t_stack_check *a, t_stack_check *b)
