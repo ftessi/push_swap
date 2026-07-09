@@ -14,8 +14,6 @@
 	int	total_ops;
 	int	total_ops;
 	int	total_ops;
-	int	total_ops;
-	int	total_ops;
 
 	while (*s1 && (*s1 == *s2))
 	{
