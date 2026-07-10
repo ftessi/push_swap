@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   complex.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 20:37:59 by ftessi            #+#    #+#             */
-/*   Updated: 2026/07/08 20:55:00 by ftessi           ###   ########.fr       */
+/*   Updated: 2026/07/10 15:59:03 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	rotate_common(t_stack_check *a, t_stack_check *b, int *ca, int *cb)
+static void	rotate_common(t_stack *a, t_stack *b, int *ca, int *cb)
 {
 	while (*ca > 0 && *cb > 0)
 	{
@@ -28,7 +28,7 @@ static void	rotate_common(t_stack_check *a, t_stack_check *b, int *ca, int *cb)
 	}
 }
 
-static void rotate_rest(t_stack_check *a, t_stack_check *b, int ca, int cb)
+static void rotate_rest(t_stack *a, t_stack *b, int ca, int cb)
 {
     while (ca > 0)
     {
@@ -52,7 +52,7 @@ static void rotate_rest(t_stack_check *a, t_stack_check *b, int ca, int cb)
     }
 }
 
-static void move_cheapest(t_stack_check *a, t_stack_check *b, t_node *bn)
+static void move_cheapest(t_stack *a, t_stack *b, t_node *bn)
 {
     int ca;
     int cb;
@@ -66,7 +66,7 @@ static void move_cheapest(t_stack_check *a, t_stack_check *b, t_node *bn)
     pa(a, b);
 }
 
-static void final_rotate(t_stack_check *a)
+static void final_rotate(t_stack *a)
 {
     stack_o_meter(a);
     if (a->min->pos * 2 <= a->size)
@@ -77,7 +77,7 @@ static void final_rotate(t_stack_check *a)
             rra(a);
 }
 
-void    complex_sorter(t_stack_check *a, t_stack_check *b)
+void    complex_sorter(t_stack *a, t_stack *b)
 {
     t_node  *cheapest;
 

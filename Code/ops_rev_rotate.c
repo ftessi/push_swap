@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ops_rev_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 02:15:23 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/09 14:23:22 by ftessi           ###   ########.fr       */
+/*   Updated: 2026/07/10 15:59:03 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	stack_rev_rotater(t_stack_check *stack)
+void	stack_rev_rotater(t_stack *stack)
 {
 	t_node	*old_tail;
 	t_node	*new_tail;
@@ -31,20 +31,20 @@ void	stack_rev_rotater(t_stack_check *stack)
 	stack->head = old_tail;
 }
 
-void	rra(t_stack_check *a)
+void	rra(t_stack *a)
 {
 	stack_rev_rotater(a);
 	a->op_rra++;
 	write(1, "rra\n", 4);
 }
 
-void	rrb(t_stack_check *b)
+void	rrb(t_stack *b)
 {
 	stack_rev_rotater(b);
 	b->op_rrb++;
 	write(1, "rrb\n", 4);
 }
-void	rrr(t_stack_check *a, t_stack_check *b)
+void	rrr(t_stack *a, t_stack *b)
 {
 	stack_rev_rotater(a);
 	stack_rev_rotater(b);

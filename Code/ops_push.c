@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ops_push.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 00:51:13 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/09 14:33:05 by ftessi           ###   ########.fr       */
+/*   Updated: 2026/07/10 15:59:03 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	stack_pusher(t_stack_check *dest, t_stack_check *src)
+void	stack_pusher(t_stack *dest, t_stack *src)
 {
 	t_node	*node_to_move;
 
@@ -34,13 +34,13 @@ void	stack_pusher(t_stack_check *dest, t_stack_check *src)
 	node_to_move->prev = NULL;
 	dest->size++;
 }
-void	pb(t_stack_check *a, t_stack_check *b)
+void	pb(t_stack *a, t_stack *b)
 {
 	stack_pusher(b, a); //(dest, src)
 	b->op_pb++;
 	write(1, "pb\n", 3);
 }
-void	pa(t_stack_check *a, t_stack_check *b)
+void	pa(t_stack *a, t_stack *b)
 {
 	stack_pusher(a, b);
 	a->op_pa++;

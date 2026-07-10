@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bench_main.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 12:40:04 by ftessi            #+#    #+#             */
-/*   Updated: 2026/07/06 14:10:39 by ftessi           ###   ########.fr       */
+/*   Updated: 2026/07/10 15:59:03 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "../push_swap.h"
 
 /* Helper function to display the detailed status of a stack */
-void	print_stack_debug(t_stack_check *stack, char name)
+void	print_stack_debug(t_stack *stack, char name)
 {
 	t_node	*current;
 
@@ -51,12 +51,12 @@ void	print_stack_debug(t_stack_check *stack, char name)
 
 int	main(void)
 {
-	t_stack_check	*stack_a;
-	t_stack_check	*stack_b;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 	t_node			*new_node;
 
-	stack_a = malloc(sizeof(t_stack_check));
-	stack_b = malloc(sizeof(t_stack_check));
+	stack_a = malloc(sizeof(t_stack));
+	stack_b = malloc(sizeof(t_stack));
 	if (!stack_a || !stack_b)
 		return (1);
 	stack_a->head = NULL; stack_a->tail = NULL; stack_a->max = NULL; stack_a->min = NULL; stack_a->size = 0;

@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void    print_benchmark_summary(t_stack_check *a, t_stack_check *b)
+void    print_benchmark_summary(t_stack *a, t_stack *b)
 {
     int total_ops;
 
@@ -25,7 +25,7 @@ void    print_benchmark_summary(t_stack_check *a, t_stack_check *b)
     printf("==================================================\n\n");
 }
 
-static void sort_dispatch(t_stack_check *a, t_stack_check *b)
+static void sort_dispatch(t_stack *a, t_stack *b)
 {
     if (a->size == 2)
         sa(a);
@@ -45,8 +45,8 @@ static void sort_dispatch(t_stack_check *a, t_stack_check *b)
 
 int main(int argc, char **argv)
 {
-    t_stack_check   *a;
-    t_stack_check   *b;
+    t_stack   *a;
+    t_stack   *b;
 
     if (argc < 2)
         return (0);

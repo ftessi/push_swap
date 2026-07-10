@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 21:31:48 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/06 14:10:41 by ftessi           ###   ########.fr       */
+/*   Updated: 2026/07/10 15:59:03 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	error_syntax(char *str)
 	return (0);
 }
 
-int	error_duplicate(t_stack_check *stack, int dup)
+int	error_duplicate(t_stack *stack, int dup)
 {
 	t_node	*curr;
 
@@ -48,7 +48,7 @@ int	error_duplicate(t_stack_check *stack, int dup)
 	return (0);
 }
 
-long	ft_atoi_ps(char *str, t_stack_check *stack, char **argv, bool is_split)
+long	ft_atoi_ps(char *str, t_stack *stack, char **argv, bool is_split)
 {
 	long	res;
 	int		sign;
@@ -75,7 +75,7 @@ long	ft_atoi_ps(char *str, t_stack_check *stack, char **argv, bool is_split)
 	return (res * sign);
 }
 
-void	free_and_exit(t_stack_check *stack, char **argv, bool is_split)
+void	free_and_exit(t_stack *stack, char **argv, bool is_split)
 {
 	int	i;
 

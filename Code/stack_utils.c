@@ -6,7 +6,7 @@
 /*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 21:34:06 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/06/29 22:53:26 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/10 15:59:03 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_node	*node_creator(int value)
 	node->prev = NULL;
 	return (node);
 }
-void node_connecter (t_stack_check *stack, t_node *new_node)
+void node_connecter (t_stack *stack, t_node *new_node)
 {
     if (!stack || !new_node)
         return ;
@@ -47,7 +47,7 @@ void node_connecter (t_stack_check *stack, t_node *new_node)
     stack->size++;
 }
 
-void stack_o_meter(t_stack_check *stack)
+void stack_o_meter(t_stack *stack)
 {
     t_node *curr;
     int i;
@@ -73,7 +73,7 @@ void stack_o_meter(t_stack_check *stack)
         i++;
     }
 }
-void free_stack(t_stack_check *stack)
+void free_stack(t_stack *stack)
 {
     t_node *curr;
     t_node *next;
@@ -92,7 +92,7 @@ void free_stack(t_stack_check *stack)
     stack->tail = NULL;
     stack->size = 0;
 }
-bool is_sorted(t_stack_check *stack)
+bool is_sorted(t_stack *stack)
 {
     t_node *curr;
 

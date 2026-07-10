@@ -6,13 +6,13 @@
 /*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 13:46:20 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/10 14:46:56 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/10 15:59:03 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	assign_rank(t_stack_check *stack)
+static void	assign_rank(t_stack *stack)
 {
 	t_node	*curr;
 	t_node	*compr;
@@ -36,7 +36,7 @@ static void	assign_rank(t_stack_check *stack)
 	}
 }
 
-void	medium_sorter(t_stack_check *a, t_stack_check *b)
+void	medium_sorter(t_stack *a, t_stack *b)
 {
 	int chunk_size;
 	int idx;

@@ -6,17 +6,17 @@
 /*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 13:31:39 by ftessi            #+#    #+#             */
-/*   Updated: 2026/07/09 15:34:11 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/10 15:59:03 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack_check	*init_stack(void)
+t_stack	*init_stack(void)
 {
-	t_stack_check	*stack;
+	t_stack	*stack;
 
-	stack = (t_stack_check *)malloc(sizeof(t_stack_check));
+	stack = (t_stack *)malloc(sizeof(t_stack));
 	if (!stack)
 		return (NULL);
 	stack->head = NULL;
@@ -51,7 +51,7 @@ static void	free_tokens(char **arr)
 	free(arr);
 }
 
-static void	add_value(t_stack_check *a, char *tok, char **arr, bool is_split)
+static void	add_value(t_stack *a, char *tok, char **arr, bool is_split)
 {
 	int		value;
 	t_node	*node;
@@ -67,7 +67,7 @@ static void	add_value(t_stack_check *a, char *tok, char **arr, bool is_split)
 	node_connecter(a, node);
 }
 
-static void	parse_split(t_stack_check *a, char *arg)
+static void	parse_split(t_stack *a, char *arg)
 {
 	char	**arr;
 	int		i;
@@ -84,7 +84,7 @@ static void	parse_split(t_stack_check *a, char *arg)
 	free_tokens(arr);
 }
 
-void	build_stack(t_stack_check *a, int argc, char **argv)
+void	build_stack(t_stack *a, int argc, char **argv)
 {
 	int i;
 

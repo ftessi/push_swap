@@ -6,7 +6,7 @@
 /*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 17:33:03 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/10 14:30:06 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/10 15:59:03 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,58 +48,58 @@ typedef struct s_stack_check
     int                 op_rra;
     int                 op_rrb;
     int                 op_rrr;
-}					t_stack_check;
+}					t_stack;
 
 
 /* --- SPLIT & PARSING --- */
 char				**ft_split(char const *str, char c);
 int					error_syntax(char *str);
-int					error_duplicate(t_stack_check *stack, int dup);
-long				ft_atoi_ps(char *str, t_stack_check *stack, char **argv,
+int					error_duplicate(t_stack *stack, int dup);
+long				ft_atoi_ps(char *str, t_stack *stack, char **argv,
 						bool is_split);
-void				free_and_exit(t_stack_check *stack, char **argv,
+void				free_and_exit(t_stack *stack, char **argv,
 						bool is_split);
-void				build_stack(t_stack_check *a, int argc, char **argv);
+void				build_stack(t_stack *a, int argc, char **argv);
 
 /* --- STACK UTILS --- */
 t_node				*node_creator(int value);
-void				node_connecter(t_stack_check *stack, t_node *new_node);
-void				stack_o_meter(t_stack_check *stack);
-void				free_stack(t_stack_check *stack);
-bool				is_sorted(t_stack_check *stack);
-double				compute_disorder(t_stack_check *stack);
-t_node				*target_the_a(t_node *node_b, t_stack_check *a);
-t_node				*target_the_b(t_node *node_a, t_stack_check *b);
-t_stack_check		*init_stack(void);
+void				node_connecter(t_stack *stack, t_node *new_node);
+void				stack_o_meter(t_stack *stack);
+void				free_stack(t_stack *stack);
+bool				is_sorted(t_stack *stack);
+double				compute_disorder(t_stack *stack);
+t_node				*target_the_a(t_node *node_b, t_stack *a);
+t_node				*target_the_b(t_node *node_a, t_stack *b);
+t_stack		*init_stack(void);
 
 
 /* --- ALGORITHMS AND UTILS --- */
-void				three_sorter(t_stack_check *stack);
-void				simple_sorter(t_stack_check *a, t_stack_check *b);
-void				medium_sorter(t_stack_check *a, t_stack_check *b);
-void				complex_sorter(t_stack_check *a, t_stack_check *b);
-void				assign_cost(t_stack_check *a, t_stack_check *b);
-t_node				*find_cheapest(t_stack_check *b);
+void				three_sorter(t_stack *stack);
+void				simple_sorter(t_stack *a, t_stack *b);
+void				medium_sorter(t_stack *a, t_stack *b);
+void				complex_sorter(t_stack *a, t_stack *b);
+void				assign_cost(t_stack *a, t_stack *b);
+t_node				*find_cheapest(t_stack *b);
 int					signed_rot(int pos, int size);
 
 /* --- INSTRUCTIONS --- */
-void				stack_pusher(t_stack_check *dest, t_stack_check *src);
-void				pb(t_stack_check *a, t_stack_check *b);
-void				pa(t_stack_check *a, t_stack_check *b);
+void				stack_pusher(t_stack *dest, t_stack *src);
+void				pb(t_stack *a, t_stack *b);
+void				pa(t_stack *a, t_stack *b);
 
-void				stack_swapper(t_stack_check *stack);
-void				sa(t_stack_check *a);
-void				sb(t_stack_check *b);
-void				ss(t_stack_check *a, t_stack_check *b);
+void				stack_swapper(t_stack *stack);
+void				sa(t_stack *a);
+void				sb(t_stack *b);
+void				ss(t_stack *a, t_stack *b);
 
-void				stack_rotater(t_stack_check *stack);
-void				ra(t_stack_check *a);
-void				rb(t_stack_check *b);
-void				rr(t_stack_check *a, t_stack_check *b);
+void				stack_rotater(t_stack *stack);
+void				ra(t_stack *a);
+void				rb(t_stack *b);
+void				rr(t_stack *a, t_stack *b);
 
-void				stack_rev_rotater(t_stack_check *stack);
-void				rra(t_stack_check *a);
-void				rrb(t_stack_check *b);
-void				rrr(t_stack_check *a, t_stack_check *b);
+void				stack_rev_rotater(t_stack *stack);
+void				rra(t_stack *a);
+void				rrb(t_stack *b);
+void				rrr(t_stack *a, t_stack *b);
 
 #endif

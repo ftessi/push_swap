@@ -6,13 +6,13 @@
 /*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 14:10:33 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/09 13:54:20 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/10 15:59:03 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node	*target_the_a(t_node *node_b, t_stack_check *a)
+t_node	*target_the_a(t_node *node_b, t_stack *a)
 {
 	t_node	*curr_a;
 	t_node	*target_node;
@@ -37,7 +37,7 @@ t_node	*target_the_a(t_node *node_b, t_stack_check *a)
 	return (target_node);
 }
 
-t_node	*target_the_b(t_node *node_a, t_stack_check *b)
+t_node	*target_the_b(t_node *node_a, t_stack *b)
 {
 	t_node *curr_b;
 	t_node *target_node;

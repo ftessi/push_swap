@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   complex_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 20:18:16 by ftessi            #+#    #+#             */
-/*   Updated: 2026/07/08 20:43:55 by ftessi           ###   ########.fr       */
+/*   Updated: 2026/07/10 15:59:03 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	abs_i(int x)
 	return (x);
 }
 
-void	assign_cost(t_stack_check *a, t_stack_check *b)
+void	assign_cost(t_stack *a, t_stack *b)
 {
 	t_node	*curr;
 	int		ca;
@@ -50,7 +50,7 @@ void	assign_cost(t_stack_check *a, t_stack_check *b)
 	}
 }
 
-t_node	*find_cheapest(t_stack_check *b)
+t_node	*find_cheapest(t_stack *b)
 {
 	t_node *curr;
 	t_node *best;

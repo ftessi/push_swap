@@ -6,13 +6,13 @@
 /*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 20:02:55 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/05 19:52:37 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/10 15:59:03 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void three_sorter(t_stack_check *stack)
+void three_sorter(t_stack *stack)
 {
     stack_o_meter(stack);
 
