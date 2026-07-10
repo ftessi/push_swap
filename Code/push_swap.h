@@ -6,7 +6,7 @@
 /*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 17:33:03 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/09 15:30:24 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/10 14:30:06 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ t_stack_check		*init_stack(void);
 /* --- ALGORITHMS AND UTILS --- */
 void				three_sorter(t_stack_check *stack);
 void				simple_sorter(t_stack_check *a, t_stack_check *b);
+void				medium_sorter(t_stack_check *a, t_stack_check *b);
 void				complex_sorter(t_stack_check *a, t_stack_check *b);
 void				assign_cost(t_stack_check *a, t_stack_check *b);
 t_node				*find_cheapest(t_stack_check *b);

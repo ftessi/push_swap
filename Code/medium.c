@@ -6,7 +6,7 @@
 /*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 13:46:20 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/08 20:04:14 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/10 14:46:56 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ void	medium_sorter(t_stack_check *a, t_stack_check *b)
 				ra(a);
 			else
 				rra(a);
+			stack_o_meter(a);
 		}
 		pa(a, b);
 	}
