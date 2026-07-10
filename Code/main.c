@@ -35,7 +35,7 @@ static void sort_dispatch(t_stack_check *a, t_stack_check *b)
         {
 			if (a->disorder < 0.20)
 				simple_sorter(a, b);
-			else if (a->disorder >= 0.20 && a->disorder < 0.60)
+			else if (a->disorder >= 0.20 && a->disorder < 0.50)
 				medium_sorter(a, b);
 			else
 				complex_sorter(a, b);
