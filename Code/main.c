@@ -32,7 +32,15 @@ static void sort_dispatch(t_stack_check *a, t_stack_check *b)
     else if (a->size == 3)
         three_sorter(a);
     else if (a->size > 3)
-        complex_sorter(a, b);
+        {
+			if (a->disorder < 0.20)
+				simple_sorter(a, b);
+			else if (a->disorder >= 0.20 && a->disorder < 0.60)
+				medium_sorter(a, b);
+			else
+				complex_sorter(a, b);
+		}
+
 }
 
 int main(int argc, char **argv)
