@@ -58,12 +58,14 @@ int main(int argc, char **argv)
         return (1);
     }
     build_stack(a, argc, argv);
-    a->disorder = compute_disorder(a);
-    if (!is_sorted(a))
+    if (a->size > 0)
     {
-        sort_dispatch(a, b);
+        a->disorder = compute_disorder(a);
+        if (!is_sorted(a))
+            sort_dispatch(a, b);
     }
-    print_benchmark_summary(a, b); 
+    if (a->bench)
+        print_benchmark_summary(a, b);
     free_stack(a);
     free_stack(b);
     free(a);

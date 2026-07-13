@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   build_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
+/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 13:31:39 by ftessi            #+#    #+#             */
-/*   Updated: 2026/07/10 15:59:03 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/13 17:51:09 by ftessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,19 +86,24 @@ static void	parse_split(t_stack *a, char *arg)
 
 void	build_stack(t_stack *a, int argc, char **argv)
 {
-	int i;
+	int	i;
+	int	nums;
 
-	if (argc == 2)
-		parse_split(a, argv[1]);
+	nums = parse_flags(a, argc, argv);  /* applies flags, counts numbers */
+	if (nums == 0)
+		return ;						/* only flags → nothing to sort */
+	if (nums == 1)
+		parse_split(a, first_number(argc, argv)); /* quoted "5 4 3" case */
 	else
 	{
 		i = 1;
 		while (i < argc)
 		{
-			add_value(a, argv[i], NULL, false);
+			if (!is_flag_token(argv[i]))
+				add_value(a, argv[i], NULL, false);
 			i++;
 		}
 	}
 	if (a->size == 0)
-		free_and_exit(a, NULL, false);
-}
+		free_and_exit(a, NULL, false);	/* n>=1 but empty (e.g. "") → Error */
+}	
