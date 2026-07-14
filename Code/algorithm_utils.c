@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
+/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 14:10:33 by umutkilicas       #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2026/07/14 13:53:26 by umutkilicas      ###   ########.fr       */
+=======
+/*   Updated: 2026/07/14 16:04:58 by ftessi           ###   ########.fr       */
+>>>>>>> 9cb81f1ba54e47589840a5dbc2984c342af3603b
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +43,13 @@ t_node	*target_the_a(t_node *node_b, t_stack *a)
 
 t_node	*target_the_b(t_node *node_a, t_stack *b)
 {
-	t_node *curr_b;
-	t_node *target_node;
-	long closest_smaller_value;
+	t_node	*curr_b;
+	t_node	*target_node;
+	long	closest_smaller_value;
 
 	curr_b = b->head;
 	target_node = NULL;
 	closest_smaller_value = -2147483649LL; // Initializing above INT_MIN
-
 	// loop through stack B to find closest larger neighbor
 	while (curr_b)
 	{ //  look for a number in B smaller than A but closest to a

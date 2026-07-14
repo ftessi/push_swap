@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   disorder.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
+/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 20:56:21 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/10 15:59:03 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/14 16:05:11 by ftessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

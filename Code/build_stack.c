@@ -6,7 +6,7 @@
 /*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 13:31:39 by ftessi            #+#    #+#             */
-/*   Updated: 2026/07/13 17:51:09 by ftessi           ###   ########.fr       */
+/*   Updated: 2026/07/14 16:05:01 by ftessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,9 +89,9 @@ void	build_stack(t_stack *a, int argc, char **argv)
 	int	i;
 	int	nums;
 
-	nums = parse_flags(a, argc, argv);  /* applies flags, counts numbers */
+	nums = parse_flags(a, argc, argv); /* applies flags, counts numbers */
 	if (nums == 0)
-		return ;						/* only flags → nothing to sort */
+		return ; /* only flags → nothing to sort */
 	if (nums == 1)
 		parse_split(a, first_number(argc, argv)); /* quoted "5 4 3" case */
 	else
@@ -105,5 +105,5 @@ void	build_stack(t_stack *a, int argc, char **argv)
 		}
 	}
 	if (a->size == 0)
-		free_and_exit(a, NULL, false);	/* n>=1 but empty (e.g. "") → Error */
-}	
+		free_and_exit(a, NULL, false); /* n>=1 but empty (e.g. "") → Error */
+}
