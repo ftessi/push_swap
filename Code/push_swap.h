@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
+/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 17:33:03 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/10 15:59:03 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/13 18:01:29 by ftessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,14 @@ typedef struct s_node
 	struct s_node	*prev;
 }					t_node;
 
+typedef enum e_strategy
+{
+	ADAPTIVE,
+	SIMPLE,
+	MEDIUM,
+	COMPLEX
+}					t_strategy;
+
 typedef struct s_stack_check
 {
 	t_node			*head;
@@ -37,19 +45,25 @@ typedef struct s_stack_check
 	t_node			*min;
 	int				size;
 	double			disorder;
-	int                 op_sa;
-    int                 op_sb;
-    int                 op_ss;
-    int                 op_pa;
-    int                 op_pb;
-    int                 op_ra;
-    int                 op_rb;
-    int                 op_rr;
-    int                 op_rra;
-    int                 op_rrb;
-    int                 op_rrr;
+	int				op_sa;
+	int				op_sb;
+	int				op_ss;
+	int				op_pa;
+	int				op_pb;
+	int				op_ra;
+	int				op_rb;
+	int				op_rr;
+	int				op_rra;
+	int				op_rrb;
+	int				op_rrr;
+	t_strategy		strategy;
+	bool			bench;
 }					t_stack;
 
+/* --- FLAGS --- */
+int is_flag_token(char  *arg);
+int parse_flags(t_stack *a, int argc, char **argv);
+char    *first_number(int argc, char **argv);
 
 /* --- SPLIT & PARSING --- */
 char				**ft_split(char const *str, char c);
@@ -57,8 +71,7 @@ int					error_syntax(char *str);
 int					error_duplicate(t_stack *stack, int dup);
 long				ft_atoi_ps(char *str, t_stack *stack, char **argv,
 						bool is_split);
-void				free_and_exit(t_stack *stack, char **argv,
-						bool is_split);
+void				free_and_exit(t_stack *stack, char **argv, bool is_split);
 void				build_stack(t_stack *a, int argc, char **argv);
 
 /* --- STACK UTILS --- */
@@ -70,8 +83,7 @@ bool				is_sorted(t_stack *stack);
 double				compute_disorder(t_stack *stack);
 t_node				*target_the_a(t_node *node_b, t_stack *a);
 t_node				*target_the_b(t_node *node_a, t_stack *b);
-t_stack		*init_stack(void);
-
+t_stack				*init_stack(void);
 
 /* --- ALGORITHMS AND UTILS --- */
 void				three_sorter(t_stack *stack);
