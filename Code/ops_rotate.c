@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ops_rotate.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
+/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 01:51:00 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/10 15:59:03 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/14 16:08:12 by ftessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

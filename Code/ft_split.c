@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
+/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 21:17:19 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/06/29 21:58:54 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/14 16:06:01 by ftessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	element_counter(char const *str, char c)
 {
 	int	count;
-	int		in_element;
+	int	in_element;
 
 	in_element = 0;
 	count = 0;
@@ -43,7 +43,7 @@ static void	free_all(char **res, int i)
 static char	*allocate_element(const char *str, int len)
 {
 	char	*new_element;
-	int	i;
+	int		i;
 
 	new_element = malloc(len + 1);
 	if (!new_element)

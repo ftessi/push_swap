@@ -6,7 +6,7 @@
 /*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 17:33:03 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/13 18:01:29 by ftessi           ###   ########.fr       */
+/*   Updated: 2026/07/14 16:08:20 by ftessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ typedef struct s_stack_check
 }					t_stack;
 
 /* --- FLAGS --- */
-int is_flag_token(char  *arg);
-int parse_flags(t_stack *a, int argc, char **argv);
-char    *first_number(int argc, char **argv);
+int					is_flag_token(char *arg);
+int					parse_flags(t_stack *a, int argc, char **argv);
+char				*first_number(int argc, char **argv);
 
 /* --- SPLIT & PARSING --- */
 char				**ft_split(char const *str, char c);

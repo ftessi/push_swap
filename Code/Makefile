@@ -6,7 +6,7 @@
 #    By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/29 22:05:00 by umutkilicas       #+#    #+#              #
-#    Updated: 2026/07/13 18:00:14 by ftessi           ###   ########.fr        #
+#    Updated: 2026/07/14 16:06:09 by ftessi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME        = push_swap
 CC          = gcc
 CFLAGS      = -Wall -Wextra -Werror
 
-SRC         = algorithm_utils.c  build_stack.c  complex.c  complex_utils.c  disorder.c  flags.c  ft_split.c  main.c  medium.c  ops_push.c  ops_rev_rotate.c  ops_rotate.c  ops_swap.c  parser.c  simple.c  sort_three.c  stack_utils.c
+SRC         = algorithm_utils.c  build_stack.c  complex.c  complex_utils.c  disorder.c  flags.c  ft_split.c  main.c  medium.c  ops_push.c  ops_rev_rotate.c  ops_rotate.c  ops_swap.c  parser.c  simple.c  stack_utils.c
 
 OBJ         = $(SRC:.c=.o)
 
