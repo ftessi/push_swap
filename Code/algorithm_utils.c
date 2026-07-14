@@ -6,7 +6,7 @@
 /*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 14:10:33 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/10 15:59:03 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/14 13:53:26 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,15 @@ t_node	*target_the_b(t_node *node_a, t_stack *b)
 	if (target_node == NULL)
 		return (b->max);
 	return (target_node);
+}
+void three_sorter(t_stack *stack)
+{
+    stack_o_meter(stack);
+
+    if (stack->max->pos == 0)//if max on top put to bottom
+        ra(stack);
+    else if (stack->max->pos == 1)//if max on the middle put the bottom
+        rra(stack);
+    if (stack->head->value > stack->head->next->value)
+        sa(stack); 
 }
