@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   flags.c                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/10 17:55:55 by ftessi            #+#    #+#             */
-/*   Updated: 2026/07/14 16:05:58 by ftessi           ###   ########.fr       */
-/*                                                                            */
+/* */
+/* :::      ::::::::   */
+/* flags.c                                            :+:      :+:    :+:   */
+/* +:+ +:+         +:+     */
+/* By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
+/* +#+#+#+#+#+   +#+           */
+/* Created: 2026/07/10 17:55:55 by ftessi            #+#    #+#             */
+/* Updated: 2026/07/15 15:30:00 by umutkilicas      ###   ########.fr       */
+/* */
 /* ************************************************************************** */
 
 #include "push_swap.h"
@@ -22,17 +22,15 @@ static int	ft_strcmp(char *a, char *b)
 	return ((unsigned char)a[i] - (unsigned char)b[i]);
 }
 
-/* a flag is exactly a token starting with "--"; a negative number
+/* A flag is exactly a token starting with "--"; a negative number
    like -42 starts with a single '-', so it is NOT caught here */
-
 int	is_flag_token(char *arg)
 {
 	return (arg[0] == '-' && arg[1] == '-');
 }
 
-/* set the state a recognised flag, if not part of the recognized flags,
-	error */
-static void	apply_flag(t_stack *a, char *arg)
+/* Set the state of a recognised flag. Return false if the flag is invalid */
+static bool	apply_flag(t_stack *a, char *arg)
 {
 	if (!ft_strcmp(arg, "--bench"))
 		a->bench = true;
@@ -45,10 +43,12 @@ static void	apply_flag(t_stack *a, char *arg)
 	else if (!ft_strcmp(arg, "--adaptive"))
 		a->strategy = ADAPTIVE;
 	else
-		free_and_exit(a, NULL, false);
+		return (false);
+	return (true);
 }
 
-/* single pass: apply every flag, return how many NUMBER of args exist */
+/* Single pass: apply every flag, return how many NUMBER of args exist.
+   Returns -1 if an invalid flag is detected. */
 int	parse_flags(t_stack *a, int argc, char **argv)
 {
 	int	i;
@@ -59,7 +59,10 @@ int	parse_flags(t_stack *a, int argc, char **argv)
 	while (i < argc)
 	{
 		if (is_flag_token(argv[i]))
-			apply_flag(a, argv[i]);
+		{
+			if (!apply_flag(a, argv[i]))
+				return (-1);
+		}
 		else
 			nums++;
 		i++;
@@ -67,7 +70,7 @@ int	parse_flags(t_stack *a, int argc, char **argv)
 	return (nums);
 }
 
-/* return the first non-falg argument (applied also for quoted string case) */
+/* Return the first non-flag argument (applied also for quoted string case) */
 char	*first_number(int argc, char **argv)
 {
 	int	i;

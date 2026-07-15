@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 21:31:48 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/14 16:08:18 by ftessi           ###   ########.fr       */
+/*   Updated: 2026/07/15 15:40:09 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,8 @@ long	ft_atoi_ps(char *str, t_stack *stack, char **argv, bool is_split)
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
-		{
 			sign = -1;
-			i++;
-		}
+		i++;
 	}
 	while (str[i])
 	{

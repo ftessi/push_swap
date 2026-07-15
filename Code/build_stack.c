@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   build_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/06 13:31:39 by ftessi            #+#    #+#             */
-/*   Updated: 2026/07/14 16:05:01 by ftessi           ###   ########.fr       */
+/*   Created: 2026/07/15 15:35:31 by umutkilicas       #+#    #+#             */
+/*   Updated: 2026/07/15 15:35:49 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,11 @@ t_stack	*init_stack(void)
 	stack->op_rra = 0;
 	stack->op_rrb = 0;
 	stack->op_rrr = 0;
+	stack->strategy = ADAPTIVE; //  Initialize enum strategy to default
+	stack->bench = false;       //  Initialize bench flag to default
 	return (stack);
 }
+
 static void	free_tokens(char **arr)
 {
 	int	i;
@@ -89,11 +92,13 @@ void	build_stack(t_stack *a, int argc, char **argv)
 	int	i;
 	int	nums;
 
-	nums = parse_flags(a, argc, argv); /* applies flags, counts numbers */
+	nums = parse_flags(a, argc, argv);
+	if (nums < 0) //  Exit immediately if an invalid flag was parsed
+		free_and_exit(a, NULL, false);
 	if (nums == 0)
-		return ; /* only flags → nothing to sort */
+		return ;
 	if (nums == 1)
-		parse_split(a, first_number(argc, argv)); /* quoted "5 4 3" case */
+		parse_split(a, first_number(argc, argv));
 	else
 	{
 		i = 1;
@@ -105,5 +110,5 @@ void	build_stack(t_stack *a, int argc, char **argv)
 		}
 	}
 	if (a->size == 0)
-		free_and_exit(a, NULL, false); /* n>=1 but empty (e.g. "") → Error */
+		free_and_exit(a, NULL, false);
 }

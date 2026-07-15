@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 17:33:03 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/14 16:08:20 by ftessi           ###   ########.fr       */
+/*   Updated: 2026/07/15 15:44:00 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef enum e_strategy
 	SIMPLE,
 	MEDIUM,
 	COMPLEX
-}					t_strategy;
+}	t_strategy;
 
 typedef struct s_stack_check
 {
@@ -64,6 +64,8 @@ typedef struct s_stack_check
 int					is_flag_token(char *arg);
 int					parse_flags(t_stack *a, int argc, char **argv);
 char				*first_number(int argc, char **argv);
+/* --- BENCHMARK --- */
+void                print_benchmark_summary(t_stack *a, t_stack *b);
 
 /* --- SPLIT & PARSING --- */
 char				**ft_split(char const *str, char c);
