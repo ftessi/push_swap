@@ -6,7 +6,7 @@
 #    By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/29 22:05:00 by umutkilicas       #+#    #+#              #
-#    Updated: 2026/07/15 15:50:37 by umutkilicas      ###   ########.fr        #
+#    Updated: 2026/07/16 14:46:12 by umutkilicas      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,10 @@ NAME        = push_swap
 CC          = gcc
 CFLAGS      = -Wall -Wextra -Werror
 
-SRC         = algorithm_utils.c build_stack.c disorder.c ft_split.c main.c \
-              ops_push.c ops_rev_rotate.c ops_rotate.c ops_swap.c parser.c \
-              simple.c stack_utils.c complex.c complex_utils.c medium.c    \
-			  benchmark.c flags.c\
+SRC         = algorithm_utils.c build_stack.c disorder.c ft_split.c main.c     \
+              ops_push.c ops_rev_rotate.c ops_rotate.c ops_swap.c parser.c     \
+              algo_simple.c stack_utils.c algo_complex.c algo_complex_utils.c  \
+			  benchmark.c flags.c algo_medium.c                                \
 			  
 
 OBJ         = $(SRC:.c=.o)
