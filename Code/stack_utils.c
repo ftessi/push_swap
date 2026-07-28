@@ -3,14 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 21:34:06 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/14 16:08:26 by ftessi           ###   ########.fr       */
+/*   Updated: 2026/07/28 20:14:32 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/*
+** STACK UTILS SUMMARY:
+**
+** 1. node_creator:
+**    - Allocates memory for a new node and initializes default attributes
+**      (value, index, pos, median, cost, target, next, prev).
+**
+** 2. node_connecter:
+**    - Appends a new node to the tail of the stack and updates pointers
+**      along with the stack size.
+**
+** 3. stack_o_meter:
+**    - Updates position indices and median status (top half = true) for all nodes,
+**      while tracking the minimum and maximum node pointers in the stack.
+**
+** 4. free_stack:
+**    - Frees all allocated node memory in the stack and resets stack head,
+**      tail, and size.
+**
+** 5. is_sorted:
+**    - Scans the stack to verify if elements are sorted in ascending order.
+**      Returns true if sorted, false otherwise.
+*/
 
 t_node	*node_creator(int value)
 {
@@ -29,6 +53,7 @@ t_node	*node_creator(int value)
 	node->prev = NULL;
 	return (node);
 }
+
 void	node_connecter(t_stack *stack, t_node *new_node)
 {
 	if (!stack || !new_node)
@@ -54,7 +79,6 @@ void	stack_o_meter(t_stack *stack)
 
 	if (!stack || !stack->head)
 		return ;
-	// setting the values to start to fuck aroudn and find
 	stack->max = stack->head;
 	stack->min = stack->head;
 	curr = stack->head;
@@ -63,7 +87,6 @@ void	stack_o_meter(t_stack *stack)
 	{
 		curr->pos = i;
 		curr->median = (i <= (stack->size / 2));
-			// cuz median is bool <= this expression create true/false
 		if (curr->value > stack->max->value)
 			stack->max = curr;
 		if (curr->value < stack->min->value)
@@ -72,6 +95,7 @@ void	stack_o_meter(t_stack *stack)
 		i++;
 	}
 }
+
 void	free_stack(t_stack *stack)
 {
 	t_node	*curr;
@@ -90,6 +114,7 @@ void	free_stack(t_stack *stack)
 	stack->tail = NULL;
 	stack->size = 0;
 }
+
 bool	is_sorted(t_stack *stack)
 {
 	t_node	*curr;
@@ -100,7 +125,7 @@ bool	is_sorted(t_stack *stack)
 	while (curr->next)
 	{
 		if (curr->value > curr->next->value)
-			return (false); // cuz desencing order
+			return (false);
 		curr = curr->next;
 	}
 	return (true);

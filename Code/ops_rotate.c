@@ -3,14 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ops_rotate.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 01:51:00 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/14 16:08:12 by ftessi           ###   ########.fr       */
+/*   Updated: 2026/07/28 19:58:20 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/*
+** ROTATE OPERATIONS SUMMARY:
+**
+** 1. stack_rotater:
+**    - Shifts all elements of a stack up by 1 position.
+**    - The first element (head) becomes the last element (tail).
+**    - Re-links stack pointers (head, tail, next, prev) to maintain integrity.
+**
+** 2. ra, rb, rr:
+**    - ra: Rotates Stack A, increments operation counter, prints "ra\n".
+**    - rb: Rotates Stack B, increments operation counter, prints "rb\n".
+**    - rr: Rotates both Stack A and Stack B, increments counter, prints "rr\n".
+*/
 
 void	stack_rotater(t_stack *stack)
 {
@@ -21,15 +35,12 @@ void	stack_rotater(t_stack *stack)
 		return ;
 	old_head = stack->head;
 	new_head = old_head->next;
-	// making the new head top of the stack
 	stack->head = new_head;
-	new_head->prev = NULL; // cuz its new head
-	// making the old head the tail
-	old_head->next = NULL; // updating the next pointer of old head
+	new_head->prev = NULL;
+	old_head->next = NULL;
 	old_head->prev = stack->tail;
-	// updating the prev pointer of old head to tail
-	stack->tail->next = old_head; // connecting old head to tail's next pointer
-	stack->tail = old_head;       // for stack_check
+	stack->tail->next = old_head;
+	stack->tail = old_head;
 }
 
 void	ra(t_stack *a)
@@ -45,6 +56,7 @@ void	rb(t_stack *b)
 	b->op_rb++;
 	write(1, "rb\n", 3);
 }
+
 void	rr(t_stack *a, t_stack *b)
 {
 	stack_rotater(a);

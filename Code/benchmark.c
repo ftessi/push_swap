@@ -6,13 +6,12 @@
 /*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 13:25:15 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/16 13:45:20 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/28 20:18:03 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* Func 1: Standard number printer adjusted for long to prevent overflows */
 static void	ft_putnbr_fd(long n, int fd)
 {
 	char	c;
@@ -28,7 +27,6 @@ static void	ft_putnbr_fd(long n, int fd)
 	write(fd, &c, 1);
 }
 
-/* Func 2: Rounds and prints a double to exactly 2 decimal places */
 static void	ft_putdouble_fd(double d, int fd)
 {
 	long long	total_cents;
@@ -50,7 +48,6 @@ static void	ft_putdouble_fd(double d, int fd)
 	ft_putnbr_fd(fractional_part, fd);
 }
 
-/* Func 3: Prints operational counts safely below 25 lines limit */
 static void	print_ops_details(t_stack *a, t_stack *b)
 {
 	write(2, "SWAPS    | SA : ", 16);
@@ -78,7 +75,6 @@ static void	print_ops_details(t_stack *a, t_stack *b)
 	write(2, "\n", 1);
 }
 
-/* Func 4: Evaluates and prints complexity analysis dynamically */
 static void	print_strategy_fd(t_stack *a, int fd)
 {
 	write(fd, "STRATEGY | ", 11);
@@ -100,7 +96,6 @@ static void	print_strategy_fd(t_stack *a, int fd)
 	}
 }
 
-/* Func 5: Main entry point for the benchmarking summary dashboard */
 void	print_benchmark_summary(t_stack *a, t_stack *b)
 {
 	int	total_ops;

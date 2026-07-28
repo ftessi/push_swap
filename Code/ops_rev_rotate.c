@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ops_rev_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 02:15:23 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/14 16:06:19 by ftessi           ###   ########.fr       */
+/*   Updated: 2026/07/28 20:12:30 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,8 @@ void	stack_rev_rotater(t_stack *stack)
 		return ;
 	old_tail = stack->tail;
 	new_tail = old_tail->prev;
-	// making the new tail end of the stack
 	stack->tail = new_tail;
 	new_tail->next = NULL;
-	// making the old tail head of the stack
 	old_tail->prev = NULL;
 	old_tail->next = stack->head;
 	stack->head->prev = old_tail;

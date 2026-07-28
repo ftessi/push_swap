@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   medium.c                                           :+:      :+:    :+:   */
+/*   algo_medium.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 14:41:02 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/16 14:41:05 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/28 19:34:59 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,30 @@
 #include "push_swap.h"
 
 /*
-** ==== COGNITIVE RANK ASSIGNMENT ====
-** To make our chunk sorting process smooth and independent of actual numbers 
-** (which could be negative, very large, or far apart), we scan the stack 
-** and assign a relative "index/rank" from 0 to (size - 1) to each value.
-** Example: If stack is [42, -5, 100], their assigned indexes will be [1, 0, 2].
+** ALGORITHM MEDIUM SUMMARY:
+**
+** 1. assign_rank:
+**    - Scans Stack A and assigns relative 0-indexed ranks (0 to size - 1)
+**      to work independently of actual values (negative, huge, or spread out).
+**
+** 2. find_max_node:
+**    - Scans Stack B and returns the node with the highest assigned index.
+**
+** 3. send_to_b:
+**    - Distributes elements from A to B using dynamic chunk ranges.
+**    - Keeps the 3 largest elements (index >= total_size - 3) in Stack A,
+**      pushing smaller nodes to B in layered chunks.
+**
+** 4. return_to_a:
+**    - Finds the maximum element in Stack B, rotates B until it reaches top,
+**      and pushes back to Stack A in perfect descending order.
+**
+** 5. medium_sorter:
+**    - Main entry point for medium/large stack sorting (>3 elements).
+**    - Assigns ranks, selects chunk size (12 for <= 100, 30 for > 100),
+**      distributes to B, sorts remaining 3 in A, and recovers all elements to A.
 */
+
 static void	assign_rank(t_stack *stack)
 {
 	t_node	*curr;
@@ -44,12 +62,6 @@ static void	assign_rank(t_stack *stack)
 	}
 }
 
-/*
-** ==== FIND THE ABSOLUTE MAXIMUM IN B ====
-** During the recovery phase (B -> A), we want to push elements back in 
-** descending order. To do this with maximum efficiency, we must always target 
-** the node with the highest index currently sitting in stack B.
-*/
 static t_node	*find_max_node(t_stack *b)
 {
 	t_node	*curr;
@@ -68,15 +80,6 @@ static t_node	*find_max_node(t_stack *b)
 	return (max_node);
 }
 
-/*
-** ==== CHUNK-BASED DISTRIBUTION (A -> B) ====
-** We distribute elements from A to B using a dynamic window (chunk).
-** CRITICAL FIX: We must ensure that only the absolute 3 largest elements 
-** (indices >= total_size - 3) are left in stack A. 
-** To do this, we protect them by ensuring we only push nodes to B if their 
-** index is strictly less than (total_size - 3). If we encounter one of the 
-** 3 largest elements, we skip it (ra) and keep searching for smaller nodes.
-*/
 static void	send_to_b(t_stack *a, t_stack *b, int chunk_size)
 {
 	int	idx;
@@ -103,14 +106,6 @@ static void	send_to_b(t_stack *a, t_stack *b, int chunk_size)
 	}
 }
 
-/*
-** ==== EFFICIENT RECOVERY PHASE (B -> A) ====
-** Since stack A was left with only the 3 largest elements sorted in ascending order,
-** we can push everything from B back to A in perfect sorted order without 
-** ever rotating stack A! 
-** We find B's max node, rotate B until it reaches the top (pos == 0), 
-** and push it directly to A.
-*/
 static void	return_to_a(t_stack *a, t_stack *b)
 {
 	t_node	*max_node;
@@ -131,14 +126,6 @@ static void	return_to_a(t_stack *a, t_stack *b)
 	}
 }
 
-/*
-** ==== MAIN ENTRY FOR COMPLEX SORTER ====
-** This function handles complex sorting for stacks bigger than 3 elements.
-** - We first index all nodes to operate on relative ranks.
-** - We select the mathematically optimal chunk sizes (12 for 100, 30 for 500).
-** - We push nodes to B in layered chunks, sort the remaining 3 in A, 
-** and gracefully return B's elements back to A in perfect descending order.
-*/
 void	medium_sorter(t_stack *a, t_stack *b)
 {
 	int	chunk_size;

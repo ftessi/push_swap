@@ -11,6 +11,30 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+/*
+** FLAGS PARSER SUMMARY:
+**
+** 1. ft_strcmp:
+**    - Compares two strings character by character and returns the difference
+**      of the first non-matching unsigned characters.
+**
+** 2. is_flag_token:
+**    - Checks if an argument starts with "--" to distinguish command flags
+**      from negative numbers (e.g., -42 starts with a single '-').
+**
+** 3. apply_flag:
+**    - Identifies recognized flags (--bench, --simple, --medium, --complex,
+**      --adaptive) and sets the corresponding stack strategy/flag state.
+**    - Returns true if applied successfully, or false if the flag is invalid.
+**
+** 4. parse_flags:
+**    - Iterates over all command-line arguments to parse and apply flags.
+**    - Counts non-flag (number) arguments and returns the total count,
+**      or returns -1 if an invalid flag is detected.
+**
+** 5. first_number:
+**    - Returns the pointer to the first non-flag argument in argv.
+*/
 
 static int	ft_strcmp(char *a, char *b)
 {
@@ -22,14 +46,11 @@ static int	ft_strcmp(char *a, char *b)
 	return ((unsigned char)a[i] - (unsigned char)b[i]);
 }
 
-/* A flag is exactly a token starting with "--"; a negative number
-   like -42 starts with a single '-', so it is NOT caught here */
 int	is_flag_token(char *arg)
 {
 	return (arg[0] == '-' && arg[1] == '-');
 }
 
-/* Set the state of a recognised flag. Return false if the flag is invalid */
 static bool	apply_flag(t_stack *a, char *arg)
 {
 	if (!ft_strcmp(arg, "--bench"))
@@ -47,8 +68,6 @@ static bool	apply_flag(t_stack *a, char *arg)
 	return (true);
 }
 
-/* Single pass: apply every flag, return how many NUMBER of args exist.
-   Returns -1 if an invalid flag is detected. */
 int	parse_flags(t_stack *a, int argc, char **argv)
 {
 	int	i;
@@ -70,7 +89,6 @@ int	parse_flags(t_stack *a, int argc, char **argv)
 	return (nums);
 }
 
-/* Return the first non-flag argument (applied also for quoted string case) */
 char	*first_number(int argc, char **argv)
 {
 	int	i;

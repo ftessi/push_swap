@@ -6,11 +6,35 @@
 /*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/15 15:35:31 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/15 15:35:49 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/28 20:16:59 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/*
+** STACK INITIALIZATION & BUILDING SUMMARY:
+**
+** 1. init_stack:
+**    - Allocates memory for a new t_stack structure and sets default values
+**      for pointers, operation counters, strategy (ADAPTIVE), and bench flag.
+**
+** 2. free_tokens:
+**    - Frees a null-terminated array of string tokens allocated during split.
+**
+** 3. add_value:
+**    - Validates syntax, converts string to integer, checks for duplicates,
+**      creates a node, and appends it to stack A. Exits gracefully on error.
+**
+** 4. parse_split:
+**    - Splits a single space-separated string argument into tokens, parses 
+**      each value into stack A, and frees allocated memory.
+**
+** 5. build_stack:
+**    - Main initialization entry point: parses flags, processes input arguments
+**      (either a single space-separated string or multiple command-line args),
+**      and populates stack A.
+*/
 
 t_stack	*init_stack(void)
 {
@@ -36,8 +60,8 @@ t_stack	*init_stack(void)
 	stack->op_rra = 0;
 	stack->op_rrb = 0;
 	stack->op_rrr = 0;
-	stack->strategy = ADAPTIVE; //  Initialize enum strategy to default
-	stack->bench = false;       //  Initialize bench flag to default
+	stack->strategy = ADAPTIVE;
+	stack->bench = false;
 	return (stack);
 }
 
@@ -93,7 +117,7 @@ void	build_stack(t_stack *a, int argc, char **argv)
 	int	nums;
 
 	nums = parse_flags(a, argc, argv);
-	if (nums < 0) //  Exit immediately if an invalid flag was parsed
+	if (nums < 0)
 		free_and_exit(a, NULL, false);
 	if (nums == 0)
 		return ;

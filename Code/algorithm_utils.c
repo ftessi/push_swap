@@ -6,11 +6,31 @@
 /*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 14:10:33 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/15 15:28:15 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/28 19:31:06 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/*
+** ALGORITHM UTILS SUMMARY:
+**
+** 1. target_the_a:
+**    - Finds the node in Stack A that has the closest larger value than node_b.
+**    - Uses 2147483648LL (above INT_MAX) as the initial boundary.
+**    - If no larger value exists in Stack A, returns the minimum element (a->min).
+**
+** 2. target_the_b:
+**    - Finds the node in Stack B that has the closest smaller value than node_a.
+**    - Uses -2147483649LL (below INT_MIN) as the initial boundary.
+**    - If no smaller value exists in Stack B, returns the maximum element (b->max).
+**
+** 3. three_sorter:
+**    - Sorts 3 elements in Stack A in ascending order (max 2 operations).
+**    - Updates stack metrics, then positions the max value at the bottom 
+**      (ra if max is at top pos 0, rra if max is at middle pos 1).
+**    - Performs sa if the top two elements are still out of order.
+*/
 
 t_node	*target_the_a(t_node *node_b, t_stack *a)
 {
@@ -20,8 +40,7 @@ t_node	*target_the_a(t_node *node_b, t_stack *a)
 
 	curr_a = a->head;
 	target_node = NULL;
-	closest_larger_value = 2147483648LL; // Initializing above INT_MAX
-	// loop through stack A to find closest larger neighbor
+	closest_larger_value = 2147483648LL;
 	while (curr_a)
 	{
 		if (curr_a->value > node_b->value
@@ -45,10 +64,9 @@ t_node	*target_the_b(t_node *node_a, t_stack *b)
 
 	curr_b = b->head;
 	target_node = NULL;
-	closest_smaller_value = -2147483649LL; // Initializing above INT_MIN
-	// loop through stack B to find closest larger neighbor
+	closest_smaller_value = -2147483649LL;
 	while (curr_b)
-	{ //  look for a number in B smaller than A but closest to a
+	{
 		if (curr_b->value < node_a->value
 			&& curr_b->value > closest_smaller_value)
 		{
@@ -61,14 +79,14 @@ t_node	*target_the_b(t_node *node_a, t_stack *b)
 		return (b->max);
 	return (target_node);
 }
-void three_sorter(t_stack *stack)
-{
-    stack_o_meter(stack);
 
-    if (stack->max->pos == 0)//if max on top put to bottom
-        ra(stack);
-    else if (stack->max->pos == 1)//if max on the middle put the bottom
-        rra(stack);
-    if (stack->head->value > stack->head->next->value)
-        sa(stack); 
+void	three_sorter(t_stack *stack)
+{
+	stack_o_meter(stack);
+	if (stack->max->pos == 0)
+		ra(stack);
+	else if (stack->max->pos == 1)
+		rra(stack);
+	if (stack->head->value > stack->head->next->value)
+		sa(stack);
 }

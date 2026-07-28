@@ -3,37 +3,47 @@
 /*                                                        :::      ::::::::   */
 /*   ops_swap.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/27 03:29:48 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/14 16:08:15 by ftessi           ###   ########.fr       */
+/*   Updated: 2026/07/28 20:12:01 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/*
+** SWAP OPERATIONS SUMMARY:
+**
+** 1. stack_swapper:
+**    - Swaps the top two elements of a stack (e.g., A -> B -> C becomes B -> A -> C).
+**    - Adjusts head, tail, next, and prev pointers to safely re-link the nodes.
+**    - Does nothing if stack is NULL or contains fewer than 2 elements.
+**
+** 2. sa, sb, ss:
+**    - sa: Swaps the first 2 elements at top of Stack A, increments counter, prints "sa\n".
+**    - sb: Swaps the first 2 elements at top of Stack B, increments counter, prints "sb\n".
+**    - ss: Swaps top 2 elements of both Stack A and Stack B, increments counter, prints "ss\n".
+*/
+
 void	stack_swapper(t_stack *stack)
 {
-	// lets approch our stack as A->B->C
-	t_node *first;  // will be A
-	t_node *second; // will be B
+	t_node	*first;
+	t_node	*second;
+
 	if (!stack || stack->size < 2)
 		return ;
-	first = stack->head;  // head of the stack is A we put insdie of the first
-	second = first->next; // next of the first is B we -put inside of the second
-	// now we will change the nodes
+	first = stack->head;
+	second = first->next;
 	first->next = second->next;
-	// second->next is C. we are connecting to A to C.
 	first->prev = second;
-	// A is top thats why prev is NULL. We connected prec to second thats mean put B top of tha A.
-	if (second->next)               // if C exits enter this loop
-		second->next->prev = first; //  we connect C->prev node with A
-	else                            // if there is only 2 element
-		stack->tail = first;        // make the A the tail of the stack
+	if (second->next)
+		second->next->prev = first;
+	else
+		stack->tail = first;
 	second->next = first;
-	// first under the B was C. now B is top we need to connect A under B
-	second->prev = NULL;  // B is top thats why it has NULL prev.
-	stack->head = second; // head of the stack is B now.
+	second->prev = NULL;
+	stack->head = second;
 }
 
 void	sa(t_stack *a)
