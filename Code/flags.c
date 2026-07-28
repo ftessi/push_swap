@@ -32,9 +32,6 @@
 **    - Iterates over all command-line arguments to parse and apply flags.
 **    - Counts non-flag (number) arguments and returns the total count,
 **      or returns -1 if an invalid flag is detected.
-**
-** 5. first_number:
-**    - Returns the pointer to the first non-flag argument in argv.
 */
 
 static int	ft_strcmp(char *a, char *b)
@@ -88,18 +85,4 @@ int	parse_flags(t_stack *a, int argc, char **argv)
 		i++;
 	}
 	return (nums);
-}
-
-char	*first_number(int argc, char **argv)
-{
-	int	i;
-
-	i = 1;
-	while (i < argc)
-	{
-		if (!is_flag_token(argv[i]))
-			return (argv[i]);
-		i++;
-	}
-	return (NULL);
 }

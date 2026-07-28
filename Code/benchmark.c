@@ -6,47 +6,30 @@
 /*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 13:25:15 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/28 23:04:37 by ftessi           ###   ########.fr       */
+/*   Updated: 2026/07/29 10:14:22 by ftessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_putnbr_fd(long n, int fd)
-{
-	char	c;
-
-	if (n < 0)
-	{
-		write(fd, "-", 1);
-		n = -n;
-	}
-	if (n >= 10)
-		ft_putnbr_fd(n / 10, fd);
-	c = (n % 10) + '0';
-	write(fd, &c, 1);
-}
-
-static void	ft_putdouble_fd(double d, int fd)
-{
-	long long	total_cents;
-	long long	integer_part;
-	long long	fractional_part;
-
-	if (d < 0)
-	{
-		write(fd, "-", 1);
-		d = -d;
-	}
-	total_cents = (long long)(d * 100.0 + 0.5);
-	integer_part = total_cents / 100;
-	fractional_part = total_cents % 100;
-	ft_putnbr_fd(integer_part, fd);
-	write(fd, ".", 1);
-	if (fractional_part < 10)
-		write(fd, "0", 1);
-	ft_putnbr_fd(fractional_part, fd);
-}
+/*
+** BENCHMARK SUMMARY (--bench, stderr only):
+**
+** 1. print_ops_details:
+**    - Prints the count of all 11 operation types. Dual operations (ss, rr,
+**      rrr) are counted once, on stack A, because they are one instruction.
+**
+** 2. print_class_fd:
+**    - Prints one strategy name and its complexity class in the push_swap
+**      operation model. TINY and NONE only ever come from a->resolved.
+**
+** 3. print_strategy_fd:
+**    - SELECTED is what the flags plus the disorder asked for; it always
+**      resolves through resolve_strategy(), the same function main.c uses
+**      to dispatch, so the two can never drift apart.
+**    - EXECUTED is what actually generated the operations. The two differ
+**      when the stack was already sorted (NONE) or had 2-3 elements (TINY).
+*/
 
 static void	print_ops_details(t_stack *a, t_stack *b)
 {
@@ -75,44 +58,50 @@ static void	print_ops_details(t_stack *a, t_stack *b)
 	write(2, "\n", 1);
 }
 
+static void	print_class_fd(t_strategy s, int fd)
+{
+	if (s == SIMPLE)
+		write(fd, "Simple / O(n^2)", 15);
+	else if (s == MEDIUM)
+		write(fd, "Medium / O(n*sqrt(n))", 21);
+	else if (s == COMPLEX)
+		write(fd, "Complex / O(n log n)", 20);
+	else if (s == TINY)
+		write(fd, "Direct micro-sort / O(1)", 24);
+	else
+		write(fd, "None (input already sorted)", 27);
+}
+
 static void	print_strategy_fd(t_stack *a, int fd)
 {
-	write(fd, "STRATEGY | ", 11);
-	if (a->strategy == 1)
-		write(fd, "Simple / O(n^2)\n", 16);
-	else if (a->strategy == 2)
-		write(fd, "Medium / O(n√n)\n", 18);
-	else if (a->strategy == 3)
-		write(fd, "Complex / O(n log n)\n", 21);
-	else
-	{
-		write(fd, "Adaptive (", 10);
-		if (a->disorder < 0.20)
-			write(fd, "Simple) / O(n^2)\n", 17);
-		else if (a->disorder >= 0.20 && a->disorder < 0.50)
-			write(fd, "Medium) / O(n√n)\n", 19);
-		else
-			write(fd, "Complex) / O(n log n)\n", 22);
-	}
+	write(fd, "SELECTED : ", 11);
+	if (a->strategy == ADAPTIVE)
+		write(fd, "Adaptive -> ", 12);
+	print_class_fd(resolve_strategy(a), fd);
+	write(fd, "\n         | EXECUTED : ", 23);
+	print_class_fd(a->resolved, fd);
+	write(fd, "\n", 1);
+}
+
+static int	total_operations(t_stack *a, t_stack *b)
+{
+	return (a->op_sa + b->op_sb + a->op_ss + a->op_pa + b->op_pb + a->op_ra
+		+ b->op_rb + a->op_rr + a->op_rra + b->op_rrb + a->op_rrr);
 }
 
 void	print_benchmark_summary(t_stack *a, t_stack *b)
 {
-	int	total_ops;
-
 	if (!a || !b)
 		return ;
-	total_ops = a->op_sa + b->op_sb + a->op_ss + a->op_pa + b->op_pb + a->op_ra
-		+ b->op_rb + a->op_rr + a->op_rra + b->op_rrb + a->op_rrr;
 	write(2, "\n ================== OPS SUMMARY ==================\n", 52);
 	print_ops_details(a, b);
 	write(2, "--------------------------------------------------\n", 51);
 	write(2, "METRICS  | Initial Disorder: ", 29);
-	ft_putdouble_fd(a->disorder, 2);
+	ft_putpercent_fd(a->disorder, 2);
 	write(2, "\n         | ", 12);
 	print_strategy_fd(a, 2);
 	write(2, "--------------------------------------------------\n", 51);
 	write(2, " TOTAL MOVES: ", 14);
-	ft_putnbr_fd(total_ops, 2);
+	ft_putnbr_fd(total_operations(a, b), 2);
 	write(2, "\n==================================================\n\n", 53);
 }

@@ -32,11 +32,10 @@
 **      triggers free_and_exit if the value goes out of integer bounds.
 **
 ** 4. free_and_exit:
-**    - Cleans up all allocated memory (freeing split array if applicable,
-	and stack).
-**   
-	- Writes "Error\n" to standard error (fd 2) and terminates the program 
-**	with exit(1).
+**    - Cleans up all allocated memory: the split array when the caller owns
+**      one, then every node AND the t_stack structure itself.
+**    - Writes "Error\n" to standard error (fd 2) and exits with status 1.
+**    - Always exits, so callers never see a dangling stack pointer.
 */
 
 int	error_syntax(char *str)
@@ -115,7 +114,10 @@ void	free_and_exit(t_stack *stack, char **argv, bool is_split)
 		free(argv);
 	}
 	if (stack)
+	{
 		free_stack(stack);
+		free(stack);
+	}
 	write(2, "Error\n", 6);
 	exit(1);
 }
