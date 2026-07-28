@@ -1,16 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   complex_utils.c                                    :+:      :+:    :+:   */
+/*   algo_complex_utils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 20:18:16 by ftessi            #+#    #+#             */
-/*   Updated: 2026/07/14 16:05:05 by ftessi           ###   ########.fr       */
+/*   Updated: 2026/07/28 22:49:02 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/*
+** COMPLEX UTILS SUMMARY:
+**
+** 1. signed_rot:
+**    - Calculates the shortest signed rotation distance for a given position.
+**    - Returns positive distance (ra/rb) if in upper half, or negative (rra/rrb) if in lower half.
+**
+** 2. abs_i:
+**    - Helper function that returns the absolute integer value of x.
+**
+** 3. assign_cost:
+**    - Calculates total rotation cost for each node in Stack B to reach its target position in Stack A.
+**    - Optimizes cost when rotation directions match by accounting for simultaneous rotations (rr/rrr).
+**
+** 4. find_cheapest:
+**    - Scans Stack B and returns the pointer to the node requiring the minimum total operations.
+*/
 
 int	signed_rot(int pos, int size)
 {
