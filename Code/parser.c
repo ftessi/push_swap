@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
+/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 21:31:48 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/28 20:13:26 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/28 22:58:05 by ftessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** PARSER & ERROR HANDLING SUMMARY:
 **
 ** 1. error_syntax:
-**    - Validates that a string represents a valid integer format 
+**    - Validates that a string represents a valid integer format
 **      (optional leading +/- sign followed by digits).
 **    - Returns 1 if syntax is invalid, 0 if valid.
 **
@@ -26,12 +26,17 @@
 **
 ** 3. ft_atoi_ps:
 **    - Converts a string argument to a long integer.
-**    - Checks for INT_MAX (2147483647) and INT_MIN (-2147483648) overflow/underflow;
+**   
+	- Checks for INT_MAX (2147483647) and INT_MIN (-2147483648)
+**	 overflow/underflow;
 **      triggers free_and_exit if the value goes out of integer bounds.
 **
 ** 4. free_and_exit:
-**    - Cleans up all allocated memory (freeing split array if applicable, and stack).
-**    - Writes "Error\n" to standard error (fd 2) and terminates the program with exit(1).
+**    - Cleans up all allocated memory (freeing split array if applicable,
+	and stack).
+**   
+	- Writes "Error\n" to standard error (fd 2) and terminates the program 
+**	with exit(1).
 */
 
 int	error_syntax(char *str)

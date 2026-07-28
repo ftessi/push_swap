@@ -6,7 +6,7 @@
 /*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 20:56:21 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/14 16:05:11 by ftessi           ###   ########.fr       */
+/*   Updated: 2026/07/28 22:48:15 by ftessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 double	compute_disorder(t_stack *stack)
 {
-	t_node *i;
-	t_node *j;
-	double mistakes;
-	double total_pairs;
+	t_node	*i;
+	t_node	*j;
+	double	mistakes;
+	double	total_pairs;
 
 	mistakes = 0.0;
 	total_pairs = 0.0;

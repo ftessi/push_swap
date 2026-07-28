@@ -6,7 +6,7 @@
 /*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 00:51:13 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/14 16:06:15 by ftessi           ###   ########.fr       */
+/*   Updated: 2026/07/28 22:50:15 by ftessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	stack_pusher(t_stack *dest, t_stack *src)
 
 	if (!src->head)
 		return ;
-	node_to_move = src->head; // isolating the source head
+	node_to_move = src->head;
 	src->head = src->head->next;
 	if (src->head)
 		src->head->prev = NULL;
@@ -34,12 +34,14 @@ void	stack_pusher(t_stack *dest, t_stack *src)
 	node_to_move->prev = NULL;
 	dest->size++;
 }
+
 void	pb(t_stack *a, t_stack *b)
 {
-	stack_pusher(b, a); //(dest, src)
+	stack_pusher(b, a);
 	b->op_pb++;
 	write(1, "pb\n", 3);
 }
+
 void	pa(t_stack *a, t_stack *b)
 {
 	stack_pusher(a, b);

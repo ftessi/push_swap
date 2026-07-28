@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   algo_medium.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
+/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 14:41:02 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/28 19:34:59 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/28 23:06:32 by ftessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "push_swap.h"
 
@@ -35,7 +34,8 @@
 ** 5. medium_sorter:
 **    - Main entry point for medium/large stack sorting (>3 elements).
 **    - Assigns ranks, selects chunk size (12 for <= 100, 30 for > 100),
-**      distributes to B, sorts remaining 3 in A, and recovers all elements to A.
+**      distributes to B, sorts remaining 3 in A,
+	and recovers all elements to A.
 */
 
 static void	assign_rank(t_stack *stack)
@@ -95,8 +95,8 @@ static void	send_to_b(t_stack *a, t_stack *b, int chunk_size)
 			rb(b);
 			idx++;
 		}
-		else if (a->head->index < (total_size - 3)
-			&& a->head->index <= (idx + chunk_size))
+		else if (a->head->index < (total_size - 3) && a->head->index <= (idx
+				+ chunk_size))
 		{
 			pb(a, b);
 			idx++;

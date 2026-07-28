@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_complex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
+/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 20:37:59 by ftessi            #+#    #+#             */
-/*   Updated: 2026/07/28 22:48:26 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/28 23:08:38 by ftessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,21 @@
 **      common rotations have been exhausted.
 **
 ** 3. move_cheapest:
-**    - Calculates signed rotation distances for a node in Stack B and its target in Stack A.
-**    - Applies common and individual rotations to align both nodes, then pushes to Stack A (pa).
+**   
+	- Calculates signed rotation distances for a node in Stack B and its 
+**	target in Stack A.
+**    - Applies common and individual rotations to align both nodes,
+	then pushes to Stack A (pa).
 **
 ** 4. final_rotate:
 **    - Rotates Stack A until the absolute minimum element sits at the top.
 **
 ** 5. complex_sorter:
-**    - Cost-based (Turk algorithm) sorter: pushes elements to B until only 3 remain in A,
-**      sorts the 3 elements in A, iteratively finds and moves the cheapest node from B
+**   
+	- Cost-based (Turk algorithm) sorter: pushes elements to B until only 3
+**	 remain in A,
+**      sorts the 3 elements in A,
+	iteratively finds and moves the cheapest node from B
 **      to its target position in A, and performs final alignment.
 */
 
@@ -103,7 +109,7 @@ static void	final_rotate(t_stack *a)
 
 void	complex_sorter(t_stack *a, t_stack *b)
 {
-	t_node *cheapest;
+	t_node	*cheapest;
 
 	while (a->size > 3)
 		pb(a, b);
