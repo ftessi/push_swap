@@ -29,12 +29,21 @@ typedef struct s_node
 	struct s_node	*prev;
 }					t_node;
 
+/*
+** ADAPTIVE is the default *selection*; SIMPLE/MEDIUM/COMPLEX are forced by a
+** flag. TINY is the hardcoded micro-sort used for 2 or 3 elements, and NONE
+** means no algorithm ran at all (input was already sorted). The last two are
+** never selected by the user: they only ever appear in `strategy.resolved`,
+** so that --bench reports what actually ran instead of what we guessed.
+*/
 typedef enum e_strategy
 {
 	ADAPTIVE,
 	SIMPLE,
 	MEDIUM,
-	COMPLEX
+	COMPLEX,
+	TINY,
+	NONE
 }					t_strategy;
 
 typedef struct s_stack_check
@@ -57,15 +66,19 @@ typedef struct s_stack_check
 	int				op_rrb;
 	int				op_rrr;
 	t_strategy		strategy;
+	t_strategy		resolved;
 	bool			bench;
 }					t_stack;
 
 /* --- FLAGS --- */
 int					is_flag_token(char *arg);
 int					parse_flags(t_stack *a, int argc, char **argv);
-char				*first_number(int argc, char **argv);
+/* --- STRATEGY SELECTION --- */
+t_strategy			resolve_strategy(t_stack *a);
 /* --- BENCHMARK --- */
 void				print_benchmark_summary(t_stack *a, t_stack *b);
+void				ft_putnbr_fd(long n, int fd);
+void				ft_putpercent_fd(double ratio, int fd);
 
 /* --- SPLIT & PARSING --- */
 char				**ft_split(char const *str, char c);
@@ -95,6 +108,7 @@ void				complex_sorter(t_stack *a, t_stack *b);
 void				assign_cost(t_stack *a, t_stack *b);
 t_node				*find_cheapest(t_stack *b);
 int					signed_rot(int pos, int size);
+int					int_sqrt(int n);
 
 /* --- INSTRUCTIONS --- */
 void				stack_pusher(t_stack *dest, t_stack *src);

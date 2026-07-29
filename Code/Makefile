@@ -12,14 +12,14 @@
 
 NAME        = push_swap
 
-CC          = gcc
+CC          = cc
 CFLAGS      = -Wall -Wextra -Werror
 
 SRC         = algorithm_utils.c build_stack.c disorder.c ft_split.c main.c     \
               ops_push.c ops_rev_rotate.c ops_rotate.c ops_swap.c parser.c     \
-              algo_simple.c stack_utils.c algo_complex.c algo_complex_utils.c  \
-			  benchmark.c flags.c algo_medium.c                                \
-			  
+              algo_simple.c stack_utils.c stack_init.c algo_complex.c         \
+              algo_complex_utils.c benchmark.c bench_utils.c flags.c          \
+              algo_medium.c
 
 OBJ         = $(SRC:.c=.o)
 

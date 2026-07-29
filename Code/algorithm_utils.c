@@ -33,6 +33,12 @@
 **    - Updates stack metrics, then positions the max value at the bottom
 **      (ra if max is at top pos 0, rra if max is at middle pos 1).
 **    - Performs sa if the top two elements are still out of order.
+**
+** 4. int_sqrt:
+**    - Integer square root by linear search on i*i <= n. Used by the medium
+**      sorter to size its chunks, so the O(n*sqrt(n)) claim is derived from
+**      the input size instead of a hardcoded constant.
+**    - O(sqrt(n)) and allocation-free, so it costs nothing next to the sort.
 */
 
 t_node	*target_the_a(t_node *node_b, t_stack *a)
@@ -92,4 +98,14 @@ void	three_sorter(t_stack *stack)
 		rra(stack);
 	if (stack->head->value > stack->head->next->value)
 		sa(stack);
+}
+
+int	int_sqrt(int n)
+{
+	int	i;
+
+	i = 1;
+	while (i * i <= n)
+		i++;
+	return (i - 1);
 }

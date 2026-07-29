@@ -33,9 +33,18 @@
 **
 ** 5. medium_sorter:
 **    - Main entry point for medium/large stack sorting (>3 elements).
-**    - Assigns ranks, selects chunk size (12 for <= 100, 30 for > 100),
-**      distributes to B, sorts remaining 3 in A,
-	and recovers all elements to A.
+**    - Assigns ranks, derives the chunk size from sqrt(size), distributes to
+**      B, sorts the remaining 3 in A, then recovers all elements to A.
+**
+** COMPLEXITY (in generated push_swap operations):
+**    - chunk_size = 1.5*sqrt(n) gives ~sqrt(n) chunks of ~sqrt(n) elements.
+**      The 1.5 factor is a measured constant (it beat 1.0 and 2.0 at both
+**      n=100 and n=500); it does not change the complexity class.
+**    - Distribution: each element is pushed once and A is rotated at most
+**      once per element per chunk pass -> O(n*sqrt(n)).
+**    - Recovery: each element is pushed back once, and B is rotated at most
+**      O(sqrt(n)) times to expose the next maximum -> O(n*sqrt(n)).
+**    - Upper bound O(n*sqrt(n)), space O(n) (n nodes, no auxiliary array).
 */
 
 static void	assign_rank(t_stack *stack)
@@ -131,10 +140,7 @@ void	medium_sorter(t_stack *a, t_stack *b)
 	int	chunk_size;
 
 	assign_rank(a);
-	if (a->size <= 100)
-		chunk_size = 12;
-	else
-		chunk_size = 30;
+	chunk_size = int_sqrt(a->size) * 3 / 2;
 	send_to_b(a, b, chunk_size);
 	three_sorter(a);
 	return_to_a(a, b);
