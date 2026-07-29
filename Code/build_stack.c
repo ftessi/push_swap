@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   build_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
+/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/15 15:35:31 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/28 20:16:59 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/28 23:07:23 by ftessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 **      creates a node, and appends it to stack A. Exits gracefully on error.
 **
 ** 4. parse_split:
-**    - Splits a single space-separated string argument into tokens, parses 
+**    - Splits a single space-separated string argument into tokens, parses
 **      each value into stack A, and frees allocated memory.
 **
 ** 5. build_stack:

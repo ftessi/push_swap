@@ -17,7 +17,7 @@
 low-level machine is basically done and mostly correct:
 
 - The **data structure** is a doubly linked list with a container struct
-  (`t_stack_check` holding `head`/`tail`/`min`/`max`/`size`). Solid choice.
+  (`t_stack` holding `head`/`tail`/`min`/`max`/`size`). Solid choice.
 - All **11 operations** are implemented: `sa sb ss / pa pb / ra rb rr / rra rrb rrr`.
   The pointer surgery in swap/push/rotate/rev-rotate looks **correct**.
 - `ft_split`, `is_sorted`, `stack_o_meter` (the min/max/position scanner),

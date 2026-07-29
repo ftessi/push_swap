@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
+/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/15 15:47:29 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/28 22:51:02 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/28 22:55:34 by ftessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,25 @@
 ** MAIN PROGRAM & DISPATCH SUMMARY:
 **
 ** 1. sort_dispatch:
-**    - Selects and executes the appropriate sorting algorithm based on stack size,
-**      explicit strategy flags (1=SIMPLE, 2=MEDIUM, 3=COMPLEX), or calculated disorder metric.
+**   
+	- Selects and executes the appropriate sorting algorithm based on stack size,
+**      explicit strategy flags (1=SIMPLE, 2=MEDIUM, 3=COMPLEX),
+	or calculated disorder metric.
 **
 ** 2. clean_exit:
-**    - Safely frees node memory and structure pointers for both Stack A and Stack B,
-**      then returns the given exit code.
+**   
+	- Safely frees node memory and structure pointers for both Stack A and 
+	Stack B, then returns the given exit code.  
 **
 ** 3. main:
 **    - Program entry point: parses arguments, builds and validates Stack A,
-**      allocates Stack B, calculates disorder metric, executes sorting if unsorted,
+**      allocates Stack B, calculates disorder metric,
+	executes sorting if unsorted,
 **      prints benchmark metrics if requested, and cleans up resources on exit.
 */
+
+	/* . build_stack handles parse_flags and fills Stack A */
+	/* . ONLY allocate Stack B after A is fully validated (No R4 leaks!) */
 
 static void	sort_dispatch(t_stack *a, t_stack *b)
 {
@@ -80,20 +87,15 @@ int	main(int argc, char **argv)
 	a = init_stack();
 	if (!a)
 		return (write(2, "Error\n", 6), 1);
-	
-	/* 1. build_stack handles parse_flags and fills Stack A */
 	build_stack(a, argc, argv);
 	if (a->size == 0)
 		return (clean_exit(a, NULL, 0));
-
-	/* 2. ONLY allocate Stack B after A is fully validated (No R4 leaks!) */
 	b = init_stack();
 	if (!b)
 	{
 		write(2, "Error\n", 6);
 		return (clean_exit(a, NULL, 1));
 	}
-	
 	a->disorder = compute_disorder(a);
 	if (!is_sorted(a))
 		sort_dispatch(a, b);

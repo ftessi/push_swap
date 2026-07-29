@@ -61,7 +61,7 @@ Initialize `mistakes` unconditionally, like `total_pairs`. Then a clean early re
 handles the `size < 2` case (and prevents a `0 / 0` division):
 
 ```c
-double	compute_disorder(t_stack_check *stack)
+double	compute_disorder(t_stack *stack)
 {
 	t_node	*i;
 	t_node	*j;
@@ -117,7 +117,7 @@ Target shape (debug removed):
 ```c
 int	main(int argc, char **argv)
 {
-	t_stack_check	*a;
+	t_stack	*a;
 
 	if (argc < 2)
 		return (0);

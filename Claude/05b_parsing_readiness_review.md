@@ -59,7 +59,7 @@ You currently have **two** structs and an unresolved question: *what, exactly, i
    - **(b) Container struct:** a small struct holding `t_stack_node *head`,
      `t_stack_node *tail`, and `int size`. More bookkeeping but O(1) size/tail.
 
-   You started option (b) with `t_stack_check` — but its `head`/`tail` are typed
+   You started option (b) with `t_stack` — but its `head`/`tail` are typed
    `struct s_stack_check *`. That's a **bug**: a container's head should point to a
    **node**, i.e. `t_stack_node *head;`. As written, your container points at other
    containers. Decide (a) or (b), and if (b), fix the member types.

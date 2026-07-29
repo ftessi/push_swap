@@ -109,7 +109,7 @@ git stash apply 'stash@{1}'
 
 # 3. Resolve push_swap.h by KEEPING BOTH sides:
 #      - your changes: 'long ft_atoi_ps', build_stack prototype, aligned formatting
-#      - their addition: 'void simple_sorter(t_stack_check *a, t_stack_check *b);'
+#      - their addition: 'void simple_sorter(t_stack *a, t_stack *b);'
 #    (Two conflict hunks: the ALGORITHMS section, and a 42-header date line.)
 git add Code/push_swap.h
 

@@ -45,7 +45,7 @@ while (a->size > 3)
 On the very first iteration **stack B is empty**. Follow the target lookup
 (`algorithm_utils.c`):
 ```c
-t_node	*target_the_b(t_node *node_a, t_stack_check *b)
+t_node	*target_the_b(t_node *node_a, t_stack *b)
 {
 	curr_b = b->head;              // b->head == NULL  (empty)
 	target_node = NULL;
@@ -58,7 +58,7 @@ t_node	*target_the_b(t_node *node_a, t_stack_check *b)
 It returns `b->max`. But `b->max` is **NULL**: `init_stack` set it to NULL, and
 `stack_o_meter` **returns early on an empty stack without setting `max`**:
 ```c
-void	stack_o_meter(t_stack_check *stack)
+void	stack_o_meter(t_stack *stack)
 {
 	if (!stack || !stack->head)
 		return ;                   // empty b -> max stays NULL
@@ -128,7 +128,7 @@ just with the loop conditions fixed.
 ```c
 #include "push_swap.h"
 
-static void	push_all_to_b(t_stack_check *a, t_stack_check *b)
+static void	push_all_to_b(t_stack *a, t_stack *b)
 {
 	t_node	*target_node;
 
@@ -148,7 +148,7 @@ static void	push_all_to_b(t_stack_check *a, t_stack_check *b)
 	}
 }
 
-static void	push_back_to_a(t_stack_check *a, t_stack_check *b)
+static void	push_back_to_a(t_stack *a, t_stack *b)
 {
 	t_node	*target_node;
 
@@ -168,7 +168,7 @@ static void	push_back_to_a(t_stack_check *a, t_stack_check *b)
 	}
 }
 
-void	simple_sorter(t_stack_check *a, t_stack_check *b)
+void	simple_sorter(t_stack *a, t_stack *b)
 {
 	push_all_to_b(a, b);
 	three_sorter(a);

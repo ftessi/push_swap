@@ -10,7 +10,7 @@ This is a group project (`02_team_workflow.md`). Before touching anything:
   (steps 1–3, 7, 8); **teammate** continues *sorting strategies* (steps 4–6) since
   they wrote `three_sorter`.
 - Agree the **sort direction is ascending** (the code already assumes it) and that
-  `t_stack_check` is the stack handle everywhere.
+  `t_stack` is the stack handle everywhere.
 - Commit the untracked `05b_parsing_readiness_review.md`; resolve the
   `split_psodo.txt` deletion. Start from a clean `git status`.
 

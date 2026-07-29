@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   algo_simple.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
+/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 13:15:38 by umutkilicas       #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2026/07/29 00:07:40 by umutkilicas      ###   ########.fr       */
+=======
+/*   Updated: 2026/07/28 23:05:56 by ftessi           ###   ########.fr       */
+>>>>>>> 5a68e40a7c8f1f792a4596893aeac067d0a4fe50
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +22,50 @@
 ** 1. PRE-SORT AND PUSH TO STACK B:
 **    - Push elements to Stack B until Stack A has only 3 elements remaining.
 **    - Update stack metrics (median, positions, min/max values) each iteration.
-**    - Keep Stack B in descending order by targeting the correct node in B 
-**      for A's head, rotating B until the target is at the top (top half = rb, 
+**    - Keep Stack B in descending order by targeting the correct node in B
+**      for A's head, rotating B until the target is at the top (top half = rb,
 **      bottom half = rrb), then pushing.
 **
 ** 2. SOLVE BASE CASE:
 **    - Sort the remaining 3 elements in Stack A using three_sorter.
 **
 ** 3. RETURN COLLECTION (PUSH BACK TO A):
-**    - For each element in Stack B, find the smallest element in Stack A that is 
+**    - For each element in Stack B,
+	find the smallest element in Stack A that is
 **      still larger than B's head.
 **    - Rotate Stack A to bring the target position to the top, then push (pa).
 **
 ** 4. FINAL ALIGNMENT:
-**    - Rotate Stack A until the absolute smallest element (min) sits at the top.
+**
+	- Rotate Stack A until the absolute smallest element (min) sits at the top.
 */
 
-void	simple_sorter(t_stack *a, t_stack *b)
+#include "push_swap.h"
+
+/*
+** ALGORITHM SUMMARY (simple_sorter):
+**
+** 1. PRE-SORT AND PUSH TO STACK B:
+**    - Push elements to Stack B until Stack A has only 3 elements remaining.
+**    - Update stack metrics (median, positions, min/max values) each iteration.
+**    - Keep Stack B in descending order by targeting the correct node in B
+**      for A's head, rotating B until the target is at the top (top half = rb,
+**      bottom half = rrb), then pushing.
+**
+** 2. SOLVE BASE CASE:
+**    - Sort the remaining 3 elements in Stack A using three_sorter.
+**
+** 3. RETURN COLLECTION (PUSH BACK TO A):
+**    - For each element in Stack B, find the smallest element in Stack A that
+**      is still larger than B's head.
+**    - Rotate Stack A to bring the target position to the top, then push (pa).
+**
+** 4. FINAL ALIGNMENT:
+**   
+	- Rotate Stack A until the absolute smallest element (min) sits at the top.
+*/
+
+static void	push_to_b(t_stack *a, t_stack *b)
 {
 	t_node	*target_node;
 
@@ -52,8 +83,11 @@ void	simple_sorter(t_stack *a, t_stack *b)
 		}
 		pb(a, b);
 	}
+}
 
-	three_sorter(a);
+static void	push_to_a(t_stack *a, t_stack *b)
+{
+	t_node	*target_node;
 
 	while (b->size > 0)
 	{
@@ -69,7 +103,10 @@ void	simple_sorter(t_stack *a, t_stack *b)
 		}
 		pa(a, b);
 	}
+}
 
+static void	final_rotate(t_stack *a)
+{
 	stack_o_meter(a);
 	while (a->head != a->min)
 	{
@@ -78,4 +115,12 @@ void	simple_sorter(t_stack *a, t_stack *b)
 		else
 			rra(a);
 	}
+}
+
+void	simple_sorter(t_stack *a, t_stack *b)
+{
+	push_to_b(a, b);
+	three_sorter(a);
+	push_to_a(a, b);
+	final_rotate(a);
 }

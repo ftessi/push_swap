@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_complex_utils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
+/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 20:18:16 by ftessi            #+#    #+#             */
-/*   Updated: 2026/07/28 22:49:02 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/28 22:59:47 by ftessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,24 @@
 **
 ** 1. signed_rot:
 **    - Calculates the shortest signed rotation distance for a given position.
-**    - Returns positive distance (ra/rb) if in upper half, or negative (rra/rrb) if in lower half.
+**    - Returns positive distance (ra/rb) if in upper half,
+	or negative (rra/rrb) if in lower half.
 **
 ** 2. abs_i:
 **    - Helper function that returns the absolute integer value of x.
 **
 ** 3. assign_cost:
-**    - Calculates total rotation cost for each node in Stack B to reach its target position in Stack A.
-**    - Optimizes cost when rotation directions match by accounting for simultaneous rotations (rr/rrr).
+**   
+	- Calculates total rotation cost for each node in Stack B to reach its target
+**	 position in Stack A.
+**   
+	- Optimizes cost when rotation directions match by accounting for 
+**	simultaneous rotations (rr/rrr).
 **
 ** 4. find_cheapest:
-**    - Scans Stack B and returns the pointer to the node requiring the minimum total operations.
+**   
+	- Scans Stack B and returns the pointer to the node requiring the minimum 
+**	total operations.
 */
 
 int	signed_rot(int pos, int size)
@@ -70,8 +77,8 @@ void	assign_cost(t_stack *a, t_stack *b)
 
 t_node	*find_cheapest(t_stack *b)
 {
-	t_node *curr;
-	t_node *best;
+	t_node	*curr;
+	t_node	*best;
 
 	best = b->head;
 	curr = b->head;

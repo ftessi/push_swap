@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ops_rev_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
+/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 02:15:23 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/28 20:12:30 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/28 22:51:08 by ftessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	rrb(t_stack *b)
 	b->op_rrb++;
 	write(1, "rrb\n", 4);
 }
+
 void	rrr(t_stack *a, t_stack *b)
 {
 	stack_rev_rotater(a);

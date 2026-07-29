@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
+/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 21:34:06 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/28 20:14:32 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/28 23:01:02 by ftessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@
 **      along with the stack size.
 **
 ** 3. stack_o_meter:
-**    - Updates position indices and median status (top half = true) for all nodes,
+**   
+	- Updates position indices and median status (top half = true) for all nodes,
 **      while tracking the minimum and maximum node pointers in the stack.
 **
 ** 4. free_stack:

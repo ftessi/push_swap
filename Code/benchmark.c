@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   benchmark.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
+/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 13:25:15 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/28 20:18:03 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/28 23:04:37 by ftessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ static void	print_strategy_fd(t_stack *a, int fd)
 	if (a->strategy == 1)
 		write(fd, "Simple / O(n^2)\n", 16);
 	else if (a->strategy == 2)
-		write(fd, "Medium / O(n√n)\n", 18); 
+		write(fd, "Medium / O(n√n)\n", 18);
 	else if (a->strategy == 3)
 		write(fd, "Complex / O(n log n)\n", 21);
 	else

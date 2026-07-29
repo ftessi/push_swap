@@ -36,7 +36,7 @@ typedef struct s_stack_check
     t_node  *min;       // cached pointer to the min node
     int     size;       // number of nodes
     double  disorder;   // 0..1 disorder metric (declared but not computed yet)
-}   t_stack_check;
+}   t_stack;
 ```
 - The **container / stack handle**. Holding `tail` and `size` gives O(1) append and
   O(1) size — this is the "option (b)" the readiness review recommended, and the

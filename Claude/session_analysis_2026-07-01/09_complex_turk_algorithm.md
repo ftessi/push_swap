@@ -83,7 +83,7 @@ static int	abs_i(int x)
 	return (x);
 }
 
-void	assign_cost(t_stack_check *a, t_stack_check *b)
+void	assign_cost(t_stack *a, t_stack *b)
 {
 	t_node	*curr;
 	int		ca;
@@ -107,7 +107,7 @@ void	assign_cost(t_stack_check *a, t_stack_check *b)
 	}
 }
 
-t_node	*find_cheapest(t_stack_check *b)
+t_node	*find_cheapest(t_stack *b)
 {
 	t_node	*curr;
 	t_node	*best;
@@ -132,7 +132,7 @@ under the 25-line Norm limit and keeps `complex.c` at exactly 5 functions.
 ```c
 #include "push_swap.h"
 
-static void	rotate_common(t_stack_check *a, t_stack_check *b, int *ca, int *cb)
+static void	rotate_common(t_stack *a, t_stack *b, int *ca, int *cb)
 {
 	while (*ca > 0 && *cb > 0)
 	{
@@ -148,7 +148,7 @@ static void	rotate_common(t_stack_check *a, t_stack_check *b, int *ca, int *cb)
 	}
 }
 
-static void	rotate_rest(t_stack_check *a, t_stack_check *b, int ca, int cb)
+static void	rotate_rest(t_stack *a, t_stack *b, int ca, int cb)
 {
 	while (ca > 0)
 	{
@@ -172,7 +172,7 @@ static void	rotate_rest(t_stack_check *a, t_stack_check *b, int ca, int cb)
 	}
 }
 
-static void	move_cheapest(t_stack_check *a, t_stack_check *b, t_node *bn)
+static void	move_cheapest(t_stack *a, t_stack *b, t_node *bn)
 {
 	int	ca;
 	int	cb;
@@ -186,7 +186,7 @@ static void	move_cheapest(t_stack_check *a, t_stack_check *b, t_node *bn)
 	pa(a, b);
 }
 
-static void	final_rotate(t_stack_check *a)
+static void	final_rotate(t_stack *a)
 {
 	stack_o_meter(a);
 	if (a->min->pos * 2 <= a->size)
@@ -197,7 +197,7 @@ static void	final_rotate(t_stack_check *a)
 			rra(a);
 }
 
-void	complex_sorter(t_stack_check *a, t_stack_check *b)
+void	complex_sorter(t_stack *a, t_stack *b)
 {
 	t_node	*cheapest;
 
@@ -285,9 +285,9 @@ Dump all but 3 to B → sort those 3 → greedily repatriate until B is empty �
 
 **`push_swap.h`** — add prototypes:
 ```c
-void	complex_sorter(t_stack_check *a, t_stack_check *b);
-void	assign_cost(t_stack_check *a, t_stack_check *b);
-t_node	*find_cheapest(t_stack_check *b);
+void	complex_sorter(t_stack *a, t_stack *b);
+void	assign_cost(t_stack *a, t_stack *b);
+t_node	*find_cheapest(t_stack *b);
 int		signed_rot(int pos, int size);
 ```
 (`target_the_a` is already declared — reused as-is.)

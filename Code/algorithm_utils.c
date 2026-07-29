@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
+/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 14:10:33 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/28 19:31:06 by umutkilicas      ###   ########.fr       */
+/*   Updated: 2026/07/28 23:01:40 by ftessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,19 @@
 ** 1. target_the_a:
 **    - Finds the node in Stack A that has the closest larger value than node_b.
 **    - Uses 2147483648LL (above INT_MAX) as the initial boundary.
-**    - If no larger value exists in Stack A, returns the minimum element (a->min).
+**    - If no larger value exists in Stack A,
+	returns the minimum element (a->min).
 **
 ** 2. target_the_b:
-**    - Finds the node in Stack B that has the closest smaller value than node_a.
+**   
+	- Finds the node in Stack B that has the closest smaller value than node_a.
 **    - Uses -2147483649LL (below INT_MIN) as the initial boundary.
-**    - If no smaller value exists in Stack B, returns the maximum element (b->max).
+**    - If no smaller value exists in Stack B,
+	returns the maximum element (b->max).
 **
 ** 3. three_sorter:
 **    - Sorts 3 elements in Stack A in ascending order (max 2 operations).
-**    - Updates stack metrics, then positions the max value at the bottom 
+**    - Updates stack metrics, then positions the max value at the bottom
 **      (ra if max is at top pos 0, rra if max is at middle pos 1).
 **    - Performs sa if the top two elements are still out of order.
 */
