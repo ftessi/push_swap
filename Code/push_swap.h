@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 17:33:03 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/28 23:06:48 by ftessi           ###   ########.fr       */
+/*   Updated: 2026/08/04 00:44:59 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int					parse_flags(t_stack *a, int argc, char **argv);
 t_strategy			resolve_strategy(t_stack *a);
 /* --- BENCHMARK --- */
 void				print_benchmark_summary(t_stack *a, t_stack *b);
+int					total_operations(t_stack *a, t_stack *b);
 void				ft_putnbr_fd(long n, int fd);
 void				ft_putpercent_fd(double ratio, int fd);
 

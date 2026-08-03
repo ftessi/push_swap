@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   benchmark.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 13:25:15 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/29 10:14:22 by ftessi           ###   ########.fr       */
+/*   Updated: 2026/08/04 00:45:02 by umutkilicas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ static void	print_strategy_fd(t_stack *a, int fd)
 	write(fd, "\n", 1);
 }
 
-static int	total_operations(t_stack *a, t_stack *b)
+int	total_operations(t_stack *a, t_stack *b)
 {
 	return (a->op_sa + b->op_sb + a->op_ss + a->op_pa + b->op_pb + a->op_ra
 		+ b->op_rb + a->op_rr + a->op_rra + b->op_rrb + a->op_rrr);
