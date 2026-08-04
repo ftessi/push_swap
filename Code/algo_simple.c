@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_simple.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
+/*   By: ukilicas <ukilicas@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/06 13:15:38 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/29 14:19:02 by umutkilicas      ###   ########.fr       */
+/*   Created: 2026/07/06 13:15:38 by ukilicas.         #+#    #+#             */
+/*   Updated: 2026/08/04 14:46:22 by ukilicas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

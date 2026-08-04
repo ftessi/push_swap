@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftessi <ftessi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ukilicas <ukilicas@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/06 14:10:33 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/07/28 23:01:40 by ftessi           ###   ########.fr       */
+/*   Created: 2026/07/06 14:10:33 by ukilicas          #+#    #+#             */
+/*   Updated: 2026/08/04 14:47:17 by ukilicas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

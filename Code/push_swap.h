@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
+/*   By: ukilicas <ukilicas@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/25 17:33:03 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/08/04 00:44:59 by umutkilicas      ###   ########.fr       */
+/*   Created: 2026/06/25 17:33:03 by ukilicas          #+#    #+#             */
+/*   Updated: 2026/08/04 14:48:58 by ukilicas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

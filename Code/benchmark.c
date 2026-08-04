@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   benchmark.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: umutkilicaslan <umutkilicaslan@student.    +#+  +:+       +#+        */
+/*   By: ukilicas <ukilicas@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/16 13:25:15 by umutkilicas       #+#    #+#             */
-/*   Updated: 2026/08/04 00:45:02 by umutkilicas      ###   ########.fr       */
+/*   Created: 2026/07/16 13:25:15 by ukilicas          #+#    #+#             */
+/*   Updated: 2026/08/04 14:47:43 by ukilicas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

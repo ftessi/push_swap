@@ -1,4 +1,4 @@
-*This project has been created as part of the 42 curriculum by ftessi, umutkilicaslan.*
+*This project has been created as part of the 42 curriculum by ftessi, ukilicas.*
 
 # push_swap
 
@@ -307,12 +307,12 @@ both authors on essentially every file. Both of us can explain any part of it.
 
 | Area | Lead | Reviewer |
 |------|------|----------|
-| Stack structure and the 11 operations | umutkilicaslan | ftessi |
+| Stack structure and the 11 operations | ukilicas | ftessi |
 | Parsing, validation and error handling | shared | shared |
-| Disorder metric | ftessi | umutkilicaslan |
-| Simple strategy | umutkilicaslan | ftessi |
-| Medium strategy | umutkilicaslan | ftessi |
-| Complex strategy | ftessi | umutkilicaslan |
+| Disorder metric | ftessi | ukilicas |
+| Simple strategy | ukilicas | ftessi |
+| Medium strategy | ukilicas | ftessi |
+| Complex strategy | ftessi | ukilicas |
 | Flags, dispatch, benchmark mode | shared | shared |
 
 ## Resources
